@@ -1,0 +1,1094 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#081a2d"><title>Cyber Mama | Guardian</title><style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#eef7ff;background:#071321}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#17445b 0%,#071321 45%);min-height:100vh}header{padding:22px 17px 15px;max-width:900px;margin:auto}h1{font-size:29px;margin:6px 0}h2{font-size:21px;margin:4px 0 13px}p{line-height:1.5;color:#b8cbd8}small,.muted{color:#a6bfcd}.badge{display:inline-block;padding:6px 10px;border-radius:99px;background:#143b46;color:#73f5c2;font-weight:700;font-size:12px}.hero{padding:18px;border:1px solid #31576b;border-radius:20px;background:linear-gradient(125deg,#10364a,#132438);box-shadow:0 12px 32px #0003}.wrap{max-width:900px;margin:auto;padding:0 15px 75px}.nav{display:flex;gap:7px;overflow:auto;padding:12px 0 17px;position:sticky;top:0;background:#071321ed;z-index:2}.nav button{white-space:nowrap;background:#152c40;color:#d9f3ff;border:1px solid #315065;border-radius:99px;padding:10px 13px;font-weight:700}.nav button.active{background:#38e5af;color:#082035;border-color:#38e5af}.panel{display:none}.panel.active{display:block}.card{background:#11263a;border:1px solid #29465b;border-radius:17px;padding:18px;margin:13px 0;box-shadow:0 8px 25px #0002}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.grid .card{margin:0}.stat{font-size:27px;font-weight:800;color:#75f1cc}.field{display:block;width:100%;background:#081b2d;color:#f4fbff;border:1px solid #466176;border-radius:11px;padding:13px;margin:9px 0 12px;font:inherit}textarea.field{min-height:105px;resize:vertical}button.primary,button.secondary{padding:12px 15px;border:0;border-radius:11px;font:inherit;font-weight:800;cursor:pointer;margin:4px 5px 4px 0}button.primary{background:#38e5af;color:#082035}button.secondary{background:#23445b;color:#eafaff}.result{display:none;padding:15px;border-radius:13px;background:#09243a;border-left:5px solid #59d9fb;margin-top:14px;white-space:pre-wrap;line-height:1.55}.result.show{display:block}.result.warn{border-color:#ffbb66}.result.high{border-color:#ff7777}.result.good{border-color:#42e0aa}label{font-weight:650}ul{padding-left:22px;line-height:1.7}.hint{font-size:13px;color:#a6c0d0}.tag{display:inline-block;padding:4px 9px;background:#234458;border-radius:7px;margin:3px;color:#bff6ff;font-size:12px}.quizitem{margin:13px 0;border-top:1px solid #2b4b60;padding-top:10px}.quizitem label{display:block;font-weight:400;margin:8px 0}.footer{text-align:center;padding:20px;color:#8ba9bc;font-size:12px}.alert{padding:10px;background:#1c3d4a;border-radius:10px;margin:7px 0}.row{display:flex;align-items:center;justify-content:space-between;gap:8px}.row h2{margin:0}a{color:#8ce5ff}input[type=radio]{accent-color:#38e5af}select{max-width:100%}</style></head><body>
+<style>
+.accessbar{position:sticky;top:0;z-index:5;background:#0d3142;padding:12px 15px;border-bottom:2px solid #38e5af}
+.accessbar select,.accessbar button{font-size:16px;padding:10px;border-radius:10px;margin:3px;background:#183d50;color:white;border:1px solid #67b7b7}
+body.large-text{font-size:21px}body.large-text button,body.large-text input,body.large-text textarea{font-size:20px}
+</style>
+<div class="accessbar" role="region" aria-label="Language and accessibility">
+<label for="globalLang" id="chooseLabel">🌍 Choose language</label>
+<select id="globalLang" aria-label="Choose language">
+<option value="en">English</option><option value="pcm">Pidgin</option><option value="yo">Yorùbá</option><option value="ig">Igbo</option><option value="ha">Hausa</option>
+<option value="bin">🇳🇬 Edo / Bini — translation in development</option><option value="efi">🇳🇬 Efik — translation in development</option><option value="ibb">🇳🇬 Ibibio — translation in development</option><option value="urh">🇳🇬 Urhobo — translation in development</option><option value="tiv">🇳🇬 Tiv — translation in development</option><option value="kr">🇳🇬 Kanuri — translation in development</option><option value="ijc">🇳🇬 Ijaw / Izon — translation in development</option><option value="nup">🇳🇬 Nupe — translation in development</option><option value="igb">🇳🇬 Igala — translation in development</option><option value="ann">🇳🇬 Annang — translation in development</option><option value="fr">🇫🇷 Français — translation in development</option><option value="es">🇪🇸 Español — translation in development</option><option value="pt">🇵🇹 Português — translation in development</option><option value="ar">🇸🇦 العربية — translation in development</option><option value="ff">🇳🇬 Fulfulde — translation in development</option><option value="igb-eb">🇳🇬 Ebira — translation in development</option><option value="idu">🇳🇬 Idoma — translation in development</option><option value="iso">🇳🇬 Isoko — translation in development</option><option value="its">🇳🇬 Itsekiri — translation in development</option><option value="gbr">🇳🇬 Gbagyi — translation in development</option><option value="jkn">🇳🇬 Jukun — translation in development</option><option value="bwr">🇳🇬 Bura — translation in development</option><option value="bom">🇳🇬 Berom — translation in development</option><option value="ish">🇳🇬 Esan — translation in development</option><option value="ets">🇳🇬 Afemai / Etsako — translation in development</option><option value="zh">🌏 Mandarin Chinese — translation in development</option><option value="hi">🇮🇳 Hindi — translation in development</option><option value="bn">🇧🇩 Bengali — translation in development</option><option value="sw">🌍 Swahili — translation in development</option><option value="de">🇩🇪 German — translation in development</option><option value="id">🇮🇩 Indonesian — translation in development</option><option value="tr">🇹🇷 Turkish — translation in development</option><option value="ru">🇷🇺 Russian — translation in development</option><option value="ja">🇯🇵 Japanese — translation in development</option><option value="ko">🇰🇷 Korean — translation in development</option></select>
+<p id="languageStatus" role="status" style="margin:7px 3px;font-size:13px;color:#d5f7ec">Only languages with an initial translated interface are selectable. Additional languages are listed but locked until reviewed. Some content in available languages still needs translation.</p>
+<button id="speakPage" type="button">🔊 Read this page</button>
+<button id="stopSpeech" type="button">⏹ Stop</button>
+<button id="bigText" type="button">A+ Bigger text</button>
+</div>
+<header><div class="badge">🛡️ CYBER MAMA • EXHIBITION BUILD</div><h1>Cyber Mama <span style="color:#42e8b2">Guardian</span></h1><p>Your smart digital safety companion • Built for everyday internet users</p><div class="hero"><strong>🔎 Understand risks. Protect your digital life.</strong><p>Check suspicious links and messages for warning signs such as HTTP, misleading hostnames, shortened links, and risky downloads. Built-in checks work offline.</p><small>⚠️ Educational risk screening, not antivirus software or a guarantee of safety.</small></div></header><main class="wrap"><nav class="nav" aria-label="Sections"><button class="active" data-tab="home">🏠 Home</button><button data-tab="guardian">🛡️ Guardian</button><button data-tab="links">🔗 Links</button><button data-tab="scams">🚨 Scams</button><button data-tab="password">🔐 Password</button><button data-tab="malware">🛡️🦠 Malware Scanner</button><button data-tab="assistant">🤖 Assistant</button><button data-tab="learn">🎓 Academy</button><button data-tab="alerts">🔔 Alerts</button><button data-tab="languages">🌍 Languages</button><button data-tab="judge" onclick="showTab(&quot;judge&quot;)">🏆 Judge Guide</button></nav>
+<section id="home" class="panel active"><div class="card" style="border-color:#38e5af;background:linear-gradient(120deg,#123d46,#11263a)"><h2>🌍 Choose your language</h2><p>Select a language right from the home screen to read Cyber Mama’s safety advice.</p><label for="homeLanguage">Language / Harshe / Asụsụ / Èdè</label><select class="field" id="homeLanguage" ><option value="en">🇬🇧 English</option><option value="pcm">🇳🇬 Nigerian Pidgin</option><option value="yo">🇳🇬 Yorùbá</option><option value="ig">🇳🇬 Igbo</option><option value="ha">🇳🇬 Hausa</option><option value="bin">🇳🇬 Edo / Bini — translation in development</option><option value="efi">🇳🇬 Efik — translation in development</option><option value="ibb">🇳🇬 Ibibio — translation in development</option><option value="urh">🇳🇬 Urhobo — translation in development</option><option value="tiv">🇳🇬 Tiv — translation in development</option><option value="kr">🇳🇬 Kanuri — translation in development</option><option value="ijc">🇳🇬 Ijaw / Izon — translation in development</option><option value="nup">🇳🇬 Nupe — translation in development</option><option value="igb">🇳🇬 Igala — translation in development</option><option value="ann">🇳🇬 Annang — translation in development</option><option value="fr">🇫🇷 Français — translation in development</option><option value="es">🇪🇸 Español — translation in development</option><option value="pt">🇵🇹 Português — translation in development</option><option value="ar">🇸🇦 العربية — translation in development</option><option value="ff">🇳🇬 Fulfulde — translation in development</option><option value="igb-eb">🇳🇬 Ebira — translation in development</option><option value="idu">🇳🇬 Idoma — translation in development</option><option value="iso">🇳🇬 Isoko — translation in development</option><option value="its">🇳🇬 Itsekiri — translation in development</option><option value="gbr">🇳🇬 Gbagyi — translation in development</option><option value="jkn">🇳🇬 Jukun — translation in development</option><option value="bwr">🇳🇬 Bura — translation in development</option><option value="bom">🇳🇬 Berom — translation in development</option><option value="ish">🇳🇬 Esan — translation in development</option><option value="ets">🇳🇬 Afemai / Etsako — translation in development</option><option value="zh">🌏 Mandarin Chinese — translation in development</option><option value="hi">🇮🇳 Hindi — translation in development</option><option value="bn">🇧🇩 Bengali — translation in development</option><option value="sw">🌍 Swahili — translation in development</option><option value="de">🇩🇪 German — translation in development</option><option value="id">🇮🇩 Indonesian — translation in development</option><option value="tr">🇹🇷 Turkish — translation in development</option><option value="ru">🇷🇺 Russian — translation in development</option><option value="ja">🇯🇵 Japanese — translation in development</option><option value="ko">🇰🇷 Korean — translation in development</option></select><div class="result show good" id="homeTip" aria-live="polite">Never share your password or one-time login code with anyone.</div><button class="secondary" onclick="showTab('languages')">More language information →</button><p class="hint">Your selected language applies across the app where translations are available. Preview languages (including the newly added choices) display English until their translations are completed and checked by fluent speakers. Read-aloud may use an English voice for those options. Some detailed results may still appear in English.</p></div><div class="card" style="border:2px solid #38e5af;background:linear-gradient(125deg,#123d46,#11263a);text-align:center">
+<h2 style="font-size:26px;margin-bottom:8px">🛡️🦠 Malware & App Safety</h2>
+<p>Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.</p>
+<button class="primary" onclick="showTab('malware')" style="font-size:17px;padding:13px 20px">🛡️ Open Malware Protection</button>
+<p class="hint">Important: this preview does not scan file contents or installed apps like a full antivirus app. Use Google Play Protect for device scanning.</p>
+</div>
+<h2>Security dashboard</h2><div class="grid"><div class="card"><small>Checks this session</small><div class="stat" id="count">0</div></div><div class="card"><small>Warnings this session</small><div class="stat" id="warningCount">0</div></div><div class="card"><small>Operating mode</small><div class="stat" style="font-size:20px">Offline ready</div></div></div><div class="card"><h2>✨ What Cyber Mama can do</h2><p>Identify common phishing and scam warning signs, explain results, check password patterns without saving passwords, teach app-safety habits and offer guided cybersecurity answers.</p><p class="hint">Results are generated locally in your browser. No messages, links, or passwords are sent to a server by this version.</p><button class="primary" onclick="showTab('guardian')">Open Guardian Mode →</button></div><div class="card"><h2>Competition demonstration</h2><p>Try the sample buttons in Guardian, Scam Link Checker and Scam Detector. They use fictional examples and show explanations, not just a red or green label.</p></div></section>
+<section id="guardian" class="panel"><h2>🛡️ Guardian Mode</h2><p>One place to screen a link or a message and get an explanation.</p><div class="card"><label for="gtype">What would you like to check?</label><select class="field" id="gtype"><option value="link">Website link</option><option value="message">Suspicious message</option></select><textarea class="field" id="ginput" placeholder="Paste a link or suspicious message here"></textarea><button class="primary" onclick="guardian()">Analyse with Guardian</button><button class="secondary" onclick="guardianExample()">Try suspicious example</button><div class="result" id="gresult" role="status"></div></div></section>
+<section id="links" class="panel"><h2>🔗 Scam Link Checker</h2><div class="card"><p>Checks for common URL warning signs. It does not visit the link or consult a live threat database.</p><label for="url">Website address</label><input class="field" id="url" type="text" inputmode="url" placeholder="https://example.com" autocomplete="off"><button class="primary" onclick="checkLink()">Analyse Link</button><button class="secondary" onclick="linkExample()">Try suspicious example</button><div class="result" id="urlResult" role="status"></div></div></section>
+<section id="scams" class="panel"><h2>🚨 Scam Message Detector</h2><div class="card"><label for="msg">Paste a message</label><textarea class="field" id="msg" placeholder="Paste an SMS, email or chat message"></textarea><button class="primary" onclick="checkScam()">Analyse Message</button><button class="secondary" onclick="scamExample()">Try scam example</button><div class="result" id="msgResult" role="status"></div></div></section>
+<section id="password" class="panel"><h2>🔐 Password Strength Checker</h2><div class="card"><p>Try a <strong>made-up password</strong> only. Never enter your real password into a demonstration app.</p><label for="pwd">Sample password</label><input class="field" id="pwd" type="password" autocomplete="off" placeholder="Type a fictional example"><label><input type="checkbox" onchange="document.getElementById('pwd').type=this.checked?'text':'password'"> Show sample</label><br><button class="primary" onclick="checkPassword()">Check Strength</button><div class="result" id="pwdResult" role="status"></div><p class="hint">Passwords are not saved, transmitted or added to history.</p></div></section>
+<section id="malware" class="panel">
+<h2>🦠 Anti-Malware & App Safety</h2>
+<p class="hint">Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.</p>
+<p>Use these checks to spot warning signs before opening a file or installing an app.</p>
+<div class="card">
+<h3>🧪 Enhanced Local File Risk Check</h3>
+<p class="hint">Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.</p>
+<label for="fileToCheck">Choose a downloaded file</label>
+<input class="field" type="file" id="fileToCheck">
+<button class="primary" onclick="scanLocalFile()">Run enhanced file checks</button>
+<div class="result" id="fileScanResult" role="status" aria-live="polite"></div>
+</div>
+<div class="card">
+<h3>📱 App safety checklist</h3>
+<p>Review an app before installing it, or use this checklist if you are worried about an app already on your phone.</p>
+<label><input type="checkbox" class="risk"> App came from an unknown download link or unofficial store</label><br><br>
+<label><input type="checkbox" class="risk"> App asks for permissions unrelated to its purpose</label><br><br>
+<label><input type="checkbox" class="risk"> Someone is pressuring me to install it urgently</label><br><br>
+<label><input type="checkbox" class="risk"> App has unclear developer details or suspicious reviews</label><br><br>
+<label><input type="checkbox" class="risk"> Phone shows unexpected pop-ups, overheating, unusual data use, or apps I did not install</label><br><br>
+<button class="primary" onclick="checkApp()">Review app warning signs</button>
+<div class="result" id="appResult" role="status" aria-live="polite"></div>
+</div>
+<div class="card">
+<h3>🛡️ Android protection steps</h3>
+<ol>
+<li>Open Google Play Store and tap your profile picture.</li>
+<li>Choose <strong>Play Protect</strong>, then run a scan if available.</li>
+<li>Install Android and app updates from official settings or stores.</li>
+<li>Uninstall apps you do not recognise, if safe to do so.</li>
+<li>Do not disable security protections to install an unknown app.</li>
+</ol>
+<p class="hint">If you believe a device is infected, avoid entering banking passwords on it and ask a trusted adult or reputable device-support professional for help.</p>
+</div>
+</section>
+<section id="assistant" class="panel"><h2>🤖 Cyber Assistant</h2><div class="card"><p>Ask about phishing, passwords, scams, malware, privacy or hacked accounts.</p><input class="field" id="question" placeholder="e.g. What is phishing?"><button class="primary" onclick="askAssistant()">Ask Cyber Mama</button><div class="result" id="answer" role="status"></div><p class="hint">This is an offline knowledge assistant with prepared guidance, not a live generative AI model.</p></div></section>
+<section id="learn" class="panel"><h2>🎓 Cybersecurity Academy</h2><div class="card"><h3>Lesson 1 • Phishing</h3><p>Phishing messages impersonate trusted organisations to trick you into sharing information or visiting deceptive sites. Verify requests using an official app or a contact method you already trust.</p><h3>Lesson 2 • Passwords</h3><p>Use a unique, long password for each account. A password manager and multi-factor authentication can improve security.</p><h3>Lesson 3 • Safe downloads</h3><p>Prefer trusted app stores, check developer information and review requested permissions. Keep your phone updated.</p><h3>Lesson 4 • Scams</h3><p>Be cautious of unexpected prizes, urgent threats, advance-fee demands and requests for one-time codes.</p></div><div class="card"><h3>📝 Quick quiz</h3><div class="quizitem">1. A stranger asks for your one-time login code. What should you do?<label><input type="radio" name="q1" value="a"> Share it to confirm your identity</label><label><input type="radio" name="q1" value="b"> Never share it; verify through official channels</label></div><div class="quizitem">2. A link uses HTTPS. Is it automatically safe?<label><input type="radio" name="q2" value="a"> Yes</label><label><input type="radio" name="q2" value="b"> No</label></div><div class="quizitem">3. Which is a safer password practice?<label><input type="radio" name="q3" value="a"> Unique passwords for different accounts</label><label><input type="radio" name="q3" value="b"> One password everywhere</label></div><button class="primary" onclick="markQuiz()">Mark Quiz</button><div class="result" id="quizResult" role="status"></div></div></section>
+<section id="alerts" class="panel"><div class="row"><h2>🔔 Security Alerts</h2><button class="secondary" onclick="clearHistory()">Clear history</button></div><p>Warnings from checks you performed during this session. Cyber Mama does not monitor other apps or websites automatically.</p><div class="card" id="history">No checks yet. Try Guardian Mode.</div></section>
+
+<section id="judge" class="panel">
+  <h2>🏆 Demo &amp; Judge Guide</h2>
+  <div class="card">
+    <span class="badge">STUDENT INNOVATION PROTOTYPE</span>
+    <h3>Cyber Mama — Your Smart Digital Safety Companion</h3>
+    <p>Cyber Mama is a beginner-friendly digital safety education prototype designed to help people pause, notice common scam warning signs, and learn safer online habits.</p>
+    <h3>Live demo sequence (about 2 minutes)</h3>
+    <ol>
+      <li><b>Scam Link Checker:</b> paste <code>http://secure-login.example.com/verify</code> (do not open it). Explain the warning signs.</li>
+      <li><b>Scam Message Detector:</b> tap “Try scam example” and show how urgency, payment demands, and OTP requests raise concern.</li>
+      <li><b>Malware &amp; App Safety:</b> choose a harmless file you already have, run the local check, and explain that it checks limited metadata/header clues—not the full file for malware.</li>
+      <li><b>Academy:</b> answer the three-question quiz to demonstrate the learning feedback.</li>
+      <li><b>Language &amp; accessibility:</b> show the language selector, bigger-text option, and read-aloud control if supported by the phone/browser.</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>What works in this prototype</h3>
+    <ul>
+      <li>Rule-based URL warning checks; it analyses the text and does not open the destination.</li>
+      <li>Rule-based scam-message screening for common pressure tactics, payment requests, and sensitive-code requests.</li>
+      <li>Local file warning checks using filename, extension, size, selected header signatures, and a SHA-256 fingerprint when the browser supports it.</li>
+      <li>Password-strength guidance using a fictional sample; the sample is not intentionally added to the check history.</li>
+      <li>Prepared offline cybersecurity guidance, a short quiz, session-only check history, and browser text-to-speech where available.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Important limitations — say these honestly</h3>
+    <ul>
+      <li>This is a browser-based prototype, not a native Android security app or full antivirus.</li>
+      <li>It does not query a live threat-intelligence database, monitor other apps, scan installed apps, or detect every malicious file.</li>
+      <li>A “low warning” result never means a link, message, or file is confirmed safe. False positives and missed threats are possible.</li>
+      <li>Language support is partial. Some language options are labelled as in development; translations need fluent-speaker review.</li>
+      <li>Text-to-speech voices depend on the Android device and browser. Speech in every selected language is not guaranteed.</li>
+      <li>The assistant uses prepared answers, not a live AI service.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Next development phase</h3>
+    <ol>
+      <li>Test with a labelled set of harmless sample URLs and scam-message examples; record correct warnings and mistakes.</li>
+      <li>Ask fluent speakers to review English, Nigerian Pidgin, Yoruba, Igbo, Hausa, and Edo/Bini translations before claiming language completeness.</li>
+      <li>For live threat intelligence, connect a reputable threat-data service with proper consent, privacy controls, and secure key handling.</li>
+      <li>For Android-wide protection, build and test a native Android app with clear permissions and platform-appropriate security APIs.</li>
+      <li>Conduct usability tests with students and people who benefit from plain-language guidance and read-aloud support.</li>
+    </ol>
+  </div>
+  <p class="hint">Competition honesty is a strength: demonstrate what works, explain what is still a prototype, and present a clear, realistic development plan.</p>
+</section>
+<section id="languages" class="panel"><h2>🌍 Language Support</h2><div class="card"><p>Choose your preferred language. Main controls, instructions and safety advice will follow your choice where translations are available.</p><select class="field" id="language" ><option value="en">English</option><option value="pcm">Nigerian Pidgin</option><option value="yo">Yorùbá</option><option value="ig">Igbo</option><option value="ha">Hausa</option><option value="bin">🇳🇬 Edo / Bini — translation in development</option><option value="efi">🇳🇬 Efik — translation in development</option><option value="ibb">🇳🇬 Ibibio — translation in development</option><option value="urh">🇳🇬 Urhobo — translation in development</option><option value="tiv">🇳🇬 Tiv — translation in development</option><option value="kr">🇳🇬 Kanuri — translation in development</option><option value="ijc">🇳🇬 Ijaw / Izon — translation in development</option><option value="nup">🇳🇬 Nupe — translation in development</option><option value="igb">🇳🇬 Igala — translation in development</option><option value="ann">🇳🇬 Annang — translation in development</option><option value="fr">🇫🇷 Français — translation in development</option><option value="es">🇪🇸 Español — translation in development</option><option value="pt">🇵🇹 Português — translation in development</option><option value="ar">🇸🇦 العربية — translation in development</option><option value="ff">🇳🇬 Fulfulde — translation in development</option><option value="igb-eb">🇳🇬 Ebira — translation in development</option><option value="idu">🇳🇬 Idoma — translation in development</option><option value="iso">🇳🇬 Isoko — translation in development</option><option value="its">🇳🇬 Itsekiri — translation in development</option><option value="gbr">🇳🇬 Gbagyi — translation in development</option><option value="jkn">🇳🇬 Jukun — translation in development</option><option value="bwr">🇳🇬 Bura — translation in development</option><option value="bom">🇳🇬 Berom — translation in development</option><option value="ish">🇳🇬 Esan — translation in development</option><option value="ets">🇳🇬 Afemai / Etsako — translation in development</option><option value="zh">🌏 Mandarin Chinese — translation in development</option><option value="hi">🇮🇳 Hindi — translation in development</option><option value="bn">🇧🇩 Bengali — translation in development</option><option value="sw">🌍 Swahili — translation in development</option><option value="de">🇩🇪 German — translation in development</option><option value="id">🇮🇩 Indonesian — translation in development</option><option value="tr">🇹🇷 Turkish — translation in development</option><option value="ru">🇷🇺 Russian — translation in development</option><option value="ja">🇯🇵 Japanese — translation in development</option><option value="ko">🇰🇷 Korean — translation in development</option></select><div class="result show good" id="tip">Never share your password or one-time login code with anyone.</div><p class="hint">Translations should be reviewed by fluent speakers before public release.</p></div></section><div class="footer">Prototype notice: checks are rule-based and can miss threats. No live threat database or background phone monitoring. • Cyber Mama • Student innovation prototype • No safety guarantee • © 2026</div></main><script>
+'use strict';let checks=0,warnings=0,history=[];const el=id=>document.getElementById(id);function showTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})}document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function result(id,title,points,advice,level,log=true){let node=el(id);node.className='result show '+(level==='high'?'high':level==='caution'?'warn':'good');node.textContent=title+'\n\n'+(points.length?'Findings:\n• '+points.join('\n• ')+'\n\n':'')+'Next step: '+advice;if(log){checks++;if(level!=='low')warnings++;history.unshift({title,level,time:new Date().toLocaleTimeString()});history=history.slice(0,15);el('count').textContent=checks;el('warningCount').textContent=warnings;renderHistory()}return {title,points,advice,level}}
+function renderHistory(){el('history').replaceChildren();if(!history.length){el('history').textContent='No checks yet. Try Guardian Mode.';return}history.forEach(h=>{let d=document.createElement('div');d.className='alert';d.textContent=(h.level==='high'?'🔴 ':h.level==='caution'?'🟠 ':'🔵 ')+h.time+' — '+h.title;el('history').append(d)})}function clearHistory(){history=[];checks=0;warnings=0;el('count').textContent='0';el('warningCount').textContent='0';renderHistory()}
+function analyseURL(raw){let v=raw.trim();if(!v)return {title:'Enter a link to analyse',points:[],advice:'Paste a complete web address.',level:'caution'};if(!/^https?:\/\//i.test(v))return {title:'Incomplete web address',points:['Include http:// or https:// at the start.'],advice:'Check the full URL before evaluating it.',level:'caution'};let u;try{u=new URL(v)}catch(e){return {title:'Invalid web address',points:['The address could not be parsed.'],advice:'Check the spelling and try again.',level:'caution'}}if(!['http:','https:'].includes(u.protocol)||!u.hostname.includes('.'))return {title:'Unsupported or incomplete URL',points:[],advice:'Enter a complete HTTP or HTTPS website address.',level:'caution'};let p=[],score=0;const host=u.hostname.toLowerCase(),full=v.toLowerCase();if(u.protocol==='http:'){p.push('Uses HTTP rather than encrypted HTTPS.');score+=2}if(host.includes('xn--')){p.push('Internationalised domain encoding deserves verification.');score++}if(/^(\d{1,3}\.){3}\d{1,3}$/.test(host)){p.push('Uses an IP address instead of a recognisable domain name.');score+=2}if(host.split('.').length>=5){p.push('Contains many subdomains; verify the actual domain.');score++}if(/(?:login|verify|secure|update|account|password|prize|bonus|freegift)/i.test(host)){p.push('Domain contains words frequently used in impersonation attempts.');score++}if(u.username||u.password){p.push('Contains credentials in the URL.');score+=2}if(host.includes('--')||host.length>45){p.push('Unusual or lengthy domain name.');score++}if(/(?:bit\.ly|tinyurl\.com|t\.co|is\.gd|cutt\.ly)$/i.test(host)){p.push('Shortened link hides its final destination.');score++}if(u.port&& !['80','443'].includes(u.port)){p.push('Uses a nonstandard port.');score++}if(!p.length)p.push('No common warning signs found by these basic rules.');let level=score>=3?'high':score>0?'caution':'low';return {title:level==='high'?'High-priority warning signs':level==='caution'?'Potential warning signs':'No obvious warning signs detected',points:p,advice:'Do not enter passwords or codes unless you have independently verified the website. A clean result does NOT prove safety.',level}}
+function checkLink(){
+ const input=document.getElementById('url');
+ const raw=(input?.value||'').trim();
+ if(!raw){result('urlResult','Enter a link to check',['Paste the complete link into the box first.'],'Cyber Mama checks for warning signs only. It cannot guarantee that a link is safe.','caution');return}
+ const findings=[];
+ let score=0, parsed=null, displayHost='Could not read the hostname';
+ const add=(pts,msg)=>{score+=pts;findings.push(msg)};
+ // Parse safely without visiting the destination.
+ let candidate=raw;
+ if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(candidate)) candidate='https://'+candidate;
+ try{parsed=new URL(candidate);displayHost=parsed.hostname.toLowerCase()}catch(e){
+   result('urlResult','This link could not be read',['The text does not look like a valid web address. Check for missing characters, spaces or a copied message around the link.'],'Do not open a link you cannot verify.','high');return;
+ }
+ const host=displayHost, path=(parsed.pathname+parsed.search+parsed.hash).toLowerCase();
+ const isIP=/^(?:\d{1,3}\.){3}\d{1,3}$/.test(host)||/^\[[0-9a-f:]+\]$/i.test(host);
+ const labels=host.split('.');
+ const knownShorteners=['bit.ly','tinyurl.com','t.co','goo.gl','ow.ly','is.gd','cutt.ly','rb.gy','shorturl.at','lnkd.in','buff.ly'];
+ const riskyExtensions=['.apk','.exe','.msi','.scr','.bat','.cmd','.js','.vbs','.ps1','.jar','.zip','.rar','.dmg'];
+ if(parsed.protocol==='http:') add(2,'The address uses HTTP rather than HTTPS. Traffic may not be encrypted; HTTPS alone would not prove a site is trustworthy.');
+ if(parsed.protocol!=='http:'&&parsed.protocol!=='https:') add(5,'The link uses an unusual protocol ('+parsed.protocol+'). Do not continue unless you expected this type of link.');
+ if(parsed.username||parsed.password) add(4,'The address contains text before the @ sign that can disguise the real destination.');
+ if(isIP) add(3,'The destination is an IP address instead of a familiar domain. This can be legitimate, but deserves extra care.');
+ if(host.startsWith('xn--')||host.split('.').some(x=>x.startsWith('xn--'))) add(3,'The domain uses encoded international characters (punycode). Check carefully for look-alike characters.');
+ if(host.length>60) add(2,'The hostname is unusually long.');
+ if(labels.some(x=>x.length>30)) add(1,'One part of the hostname is unusually long.');
+ const digits=(host.match(/\d/g)||[]).length;
+ if(digits>=8) add(1,'The hostname contains many digits; check whether it is the genuine domain.');
+ if((host.match(/-/g)||[]).length>=3) add(1,'The hostname contains several hyphens. This is not proof of a scam, but inspect the domain carefully.');
+ const brandWords=['paypal','google','microsoft','apple','amazon','facebook','instagram','whatsapp','netflix','gtbank','accessbank','zenithbank','opay','palmpay','firstbank','uba','moniepoint','jamb','waec'];
+ const registeredLike=host.replace(/^www\./,'');
+ for(const brand of brandWords){
+   if(registeredLike.includes(brand) && registeredLike!==brand+'.com' && !registeredLike.endsWith('.'+brand+'.com') && !registeredLike.endsWith('.'+brand+'.ng') && !registeredLike.endsWith('.'+brand+'.org')){
+     // Only a warning for brand-like text in a different hostname; never claim the brand is verified.
+     if(registeredLike.split('.').slice(0,-1).join('.').includes(brand)){
+       add(3,'The hostname contains the name “'+brand+'” but is not an obvious official '+brand+' domain. Verify through the official app or a saved bookmark.');
+       break;
+     }
+   }
+ }
+ if(knownShorteners.includes(host)) add(2,'This is a shortened link, so the final destination is hidden. Verify the sender and destination before opening it.');
+ const suspiciousWords=['login','verify','verification','secure','account','update','password','wallet','claim','prize','reward','gift','free','urgent','suspended','unlock','confirm','payment','banking','signin','reset','kyc','airdrop','bonus'];
+ const hits=[...new Set(suspiciousWords.filter(w=>(host+' '+path).includes(w)))];
+ if(hits.length>=2) add(3,'The address contains several words commonly used in urgent account, payment or prize lures: '+hits.slice(0,5).join(', ')+'.');
+ else if(hits.length===1) add(1,'The address includes the word “'+hits[0]+'”. This word can be legitimate, so check the context and sender.');
+ if(riskyExtensions.some(ext=>path.split('?')[0].endsWith(ext))) add(3,'The link appears to point to a downloadable executable, installer, script or archive. Do not download it unless you expected it and trust the source.');
+ if(/%[0-9a-f]{2}/i.test(host)) add(1,'The hostname contains encoded characters. Read the actual destination carefully.');
+ if(!host.includes('.')) add(2,'The hostname does not look like a typical public website domain.');
+ if(/localhost|\.local$|\.test$|\.example$|\.invalid$/i.test(host)) add(1,'This appears to be a local or example/testing address, not a normal public website.');
+ if(!findings.length) findings.push('These simple checks did not find obvious warning signs. That does NOT mean the link is safe; this checker does not query a live threat-intelligence database.');
+ const level=score>=6?'high':score>=2?'caution':'low';
+ const title=score>=6?'High-risk warning signs found':score>=2?'Warning signs — verify first':'Few warning signs detected';
+ result('urlResult',title,['Hostname: '+host,'Protocol: '+parsed.protocol,...findings],'Safety tip: do not enter passwords, bank details or one-time codes from a message link. Open the official app or type the official website address yourself. Cyber Mama does not visit the link or check a live scam database, and scammers can use HTTPS too.',level);
+}
+function linkExample(){
+ const input=document.getElementById('url');
+ if(input){input.value='http://secure-login.example.com/verify';checkLink();}
+}
+function analyseMessage(v){if(!v.trim())return {title:'Enter a message',points:[],advice:'Paste a message for screening.',level:'caution'};let p=[],score=0;const patterns=[[/\b(otp|one.time (?:password|code)|verification code|pin)\b/i,'Requests a sensitive code or PIN.',3],[/\b(urgent|immediately|within 24 hours|act now|last chance)\b/i,'Uses urgency or pressure.',1],[/\b(win|won|prize|lottery|giveaway|reward)\b/i,'Promises a prize or reward.',1],[/\b(send money|transfer|pay (?:a |the )?fee|processing fee|deposit)\b/i,'Requests a payment or transfer.',2],[/\b(suspend|blocked|locked|verify your account)\b/i,'Threatens account problems or demands verification.',2],[/\b(click|tap|open) (?:this |the )?link\b/i,'Pushes you to open a link.',1],[/\b(password|bank details|card number)\b/i,'Mentions sensitive account information.',2]];patterns.forEach(([re,desc,weight])=>{if(re.test(v)){p.push(desc);score+=weight}});if(/https?:\/\//i.test(v)){p.push('Includes a website link that should be verified separately.');score++}if(!p.length)p.push('No common scam phrases found by this simple detector.');let level=score>=3?'high':score>0?'caution':'low';return {title:level==='high'?'Possible scam: several warning signs':level==='caution'?'Message needs caution':'No obvious scam phrases detected',points:p,advice:'Verify unexpected requests through an official contact method. Never share one-time codes. A low-risk result is not proof of legitimacy.',level}}
+function checkScam(){let a=analyseMessage(el('msg').value);result('msgResult',a.title,a.points,a.advice,a.level)}function scamExample(){el('msg').value='URGENT! Your bank account will be blocked. Click this link immediately and send your OTP to verify your account.';checkScam()}
+function guardian(){let isLink=el('gtype').value==='link';let a=isLink?analyseURL(el('ginput').value):analyseMessage(el('ginput').value);result('gresult',a.title,a.points,a.advice,a.level)}function guardianExample(){let link=el('gtype').value==='link';el('ginput').value=link?'http://secure-login.example.com/verify':'URGENT! You won a prize. Pay a processing fee and share your OTP immediately.';guardian()}
+function checkPassword(){let v=el('pwd').value;if(!v){result('pwdResult','Enter a fictional sample password',[],'Try a made-up example.', 'caution',false);return}let p=[],s=0;if(v.length>=12)s+=2;else p.push('Use at least 12 characters.');if(v.length>=16)s++;if(/[a-z]/.test(v)&&/[A-Z]/.test(v))s++;else p.push('Mix upper- and lower-case letters if using a random password.');if(/\d/.test(v))s++;if(/[^a-z\d]/i.test(v))s++;if(/(1234|password|qwerty|admin|letmein|1111)/i.test(v)){s-=3;p.push('Avoid common passwords and predictable sequences.')}if(/(.)\1{3,}/.test(v)){s--;p.push('Avoid repeated characters.')}if(!p.length)p.push('Good length and variety in this basic check.');let level=s>=5?'low':s>=3?'caution':'high';result('pwdResult',level==='low'?'Strong-looking sample':level==='caution'?'Moderate sample':'Weak sample',p,'Use unique passwords and multi-factor authentication. This is not a breached-password database check.',level,false);el('pwd').value=''}
+
+async function scanLocalFile(){
+ const input=document.getElementById('fileToCheck');
+ const file=input && input.files && input.files[0];
+ if(!file){result('fileScanResult','Choose a file first',['No file was selected.'],'Choose a downloaded file, then run the check.', 'caution');return}
+ const name=file.name||'Unnamed file', lower=name.toLowerCase();
+ const ext=(lower.match(/\.([a-z0-9]{1,12})$/)||[])[1]||'';
+ const riskyExt=['exe','dll','scr','bat','cmd','com','msi','ps1','vbs','vbe','js','jse','wsf','hta','jar','apk','xapk','apks','sh','bin'];
+ const doubleExt=/\.(pdf|docx?|xlsx?|jpg|jpeg|png|txt|mp3|mp4)\.(exe|dll|scr|bat|cmd|com|msi|ps1|vbs|vbe|js|apk|sh)$/i.test(name);
+ const points=[];
+ let score=0;
+ if(doubleExt){points.push('HIGH: The filename has a familiar document/media extension followed by a potentially executable extension.');score+=5;}
+ if(riskyExt.includes(ext)){points.push('CAUTION: .' + ext + ' may execute code or install software. Only use it if you expected it and trust the source.');score+=2;}
+ if(file.size===0){points.push('CAUTION: The file is empty or its size could not be read.');score+=1;}
+ if(file.size>100*1024*1024){points.push('CAUTION: This file is over 100 MB; confirm the source and use a reputable security scanner.');score+=1;}
+ if(/(^|[\s._-])(crack|keygen|patcher|stealer|rat|payload|invoice urgent|password reset)([\s._-]|$)/i.test(name)){points.push('CAUTION: The filename contains wording sometimes used in suspicious downloads. Names alone are not proof.');score+=1;}
+ if(/\.(pdf|docx?|xlsx?|jpg|jpeg|png|txt|mp3|mp4)\.(pdf|docx?|xlsx?|jpg|jpeg|png|txt|mp3|mp4)$/i.test(name)){points.push('CAUTION: The filename has two familiar file extensions. Check the actual file type before opening.');score+=1;}
+
+ // Inspect only the file header bytes to compare a few common signatures with the filename.
+ let signature='Not recognised by this basic signature check';
+ try{
+   const head=new Uint8Array(await file.slice(0,16).arrayBuffer());
+   const starts=(arr)=>arr.every((v,i)=>head[i]===v);
+   if(starts([0x4d,0x5a])) signature='Windows executable-style header (MZ)';
+   else if(starts([0x7f,0x45,0x4c,0x46])) signature='ELF executable-style header';
+   else if(starts([0x25,0x50,0x44,0x46])) signature='PDF document header';
+   else if(starts([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a])) signature='PNG image header';
+   else if(starts([0xff,0xd8,0xff])) signature='JPEG image header';
+   else if(starts([0x50,0x4b,0x03,0x04])||starts([0x50,0x4b,0x05,0x06])||starts([0x50,0x4b,0x07,0x08])) signature='ZIP-style container header (some APK/Office/archive files use ZIP)';
+   else if(starts([0x52,0x61,0x72,0x21,0x1a,0x07])) signature='RAR archive header';
+   else if(starts([0x1f,0x8b])) signature='GZIP archive header';
+   const mismatch =
+     (['pdf'].includes(ext) && !signature.startsWith('PDF')) ||
+     (['png'].includes(ext) && !signature.startsWith('PNG')) ||
+     (['jpg','jpeg'].includes(ext) && !signature.startsWith('JPEG')) ||
+     (['exe','dll','scr'].includes(ext) && !signature.startsWith('Windows executable')) ||
+     (['zip','apk','xapk','apks','docx','xlsx','pptx'].includes(ext) && !signature.startsWith('ZIP-style'));
+   if(mismatch){points.push('HIGH: The file header does not match the expected basic signature for .' + ext + '. It may be mislabeled or use a format this simple check cannot recognise.');score+=3;}
+ }catch(e){signature='Header check unavailable in this browser';}
+
+ let fingerprint='Unavailable in this browser';
+ try{
+   if(window.crypto && crypto.subtle && file.size<=50*1024*1024){
+     const bytes=await file.arrayBuffer();
+     const digest=await crypto.subtle.digest('SHA-256',bytes);
+     fingerprint=Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+   }else if(file.size>50*1024*1024){fingerprint='Skipped for files over 50 MB to reduce phone memory use';}
+ }catch(e){fingerprint='Unavailable (this browser may not allow secure hashing for local files)';}
+
+ if(!points.length) points.push('No warning signs were found by these limited checks. This does NOT prove the file is safe.');
+ const level=score>=5?'high':score>=2?'caution':'low';
+ const title=score>=5?'High-risk warning signs found':score>=2?'Review this file carefully':'No obvious warning signs found';
+ const size=file.size<1024?file.size+' bytes':(file.size/1024/1024).toFixed(2)+' MB';
+ result('fileScanResult',title,[
+   'File name: '+name,
+   'Size: '+size,
+   'Browser-reported type: '+(file.type||'unknown'),
+   'Header signature: '+signature,
+   'SHA-256 fingerprint: '+fingerprint,
+   ...points
+ ],'Privacy: this check runs in your browser and does not upload the file. A fingerprint is only an identifier, not a malware verdict; Cyber Mama does not compare it with a threat database or inspect the full file for malicious behavior. Do not open unexpected files. For a real device scan, use Google Play Protect or a reputable security product.',
+ level);
+}
+function checkApp(){let n=[...document.querySelectorAll('#malware .risk')].filter(x=>x.checked).length;result('appResult',n>=2?'Several app warning signs':n===1?'One app warning sign':'No selected warning signs',n?[n+' potential risk indicator(s) selected. These are warning signs, not proof of malware.']:['No risks were selected; that does not establish app safety.'],'Avoid installing questionable apps. Verify the developer, review permissions, run Google Play Protect when available, and keep Android updated. This checklist does not scan installed apps.',n>=2?'high':n?'caution':'low')}
+const answers=[[/phish|fake (?:email|message)/i,'Phishing is when someone impersonates a trusted source to trick you into revealing information or visiting a deceptive website. Verify using official channels.'],[/password|passphrase/i,'Use a long, unique password for each account, ideally with a password manager. Turn on multi-factor authentication.'],[/otp|one.time|verification code/i,'Never share one-time login codes with anyone, including people claiming to be support staff.'],[/scam|fraud|prize/i,'Look for urgency, payment requests, unrealistic rewards and requests for private information. Verify independently.'],[/malware|virus|download|app/i,'Install apps from trusted sources, review permissions, update your device and avoid unexpected downloads.'],[/hack|compromis|stolen account/i,'If an account may be compromised, change its password from a trusted device, sign out other sessions, enable multi-factor authentication and contact official support.'],[/privacy|personal data/i,'Limit what you share publicly, review app permissions and use strong account security.']];function askAssistant(){let q=el('question').value.trim();let a=answers.find(([re])=>re.test(q));result('answer',q?'Cyber Mama says':'Ask a question',[],q?(a?a[1]:'I can help with phishing, scams, passwords, OTPs, malware, privacy and hacked accounts. Please ask about one of those topics.'):'Enter a cybersecurity question.','low',false)}
+function markQuiz(){let vals=['q1','q2','q3'].map(n=>document.querySelector('input[name="'+n+'"]:checked')?.value);if(vals.some(x=>!x)){result('quizResult','Complete all three questions',[],'Choose an answer for each question.','caution',false);return}let score=vals.filter((v,i)=>v===(i===2?'a':'b')).length;result('quizResult','Score: '+score+'/3',[],score===3?'Excellent! You recognised all the safer choices.':'Review the lessons and try again. Correct answers: 1B, 2B, 3A.',score===3?'low':'caution',false)}
+const tips={en:'Never share your password or one-time login code with anyone.',pcm:'No give anybody your password or the one-time code wey dem send you.',yo:'Má ṣe sọ ọ̀rọ̀ aṣínà rẹ tàbí kóòdù ìjẹ́rìísí rẹ fún ẹnikẹ́ni.',ig:'Enyela onye ọ bụla okwuntughe gị ma ọ bụ koodu nkwenye gị.',ha:'Kada ka ba kowa kalmar sirrinka ko lambar tabbatarwa.'};function languageTip(){const lang=el('language').value;el('tip').textContent=tips[lang]||tips.en;el('homeLanguage').value=lang;el('homeTip').textContent=tips[lang]||tips.en}function homeLanguageTip(){const lang=el('homeLanguage').value;el('homeTip').textContent=tips[lang]||tips.en;el('language').value=lang;el('tip').textContent=tips[lang]||tips.en}
+</script>
+<script>
+(function(){
+const T={
+pcm:{
+'Choose language':'Choose language','Read this page':'Make phone read am','Stop':'Stop','Bigger text':'Make writing big',
+'Home':'House','Guardian':'Protector','Links':'Links','Scams':'Scam','Password':'Password','App Safety':'App safety','Assistant':'Helper','Academy':'Learn','Alerts':'Warnings','Languages':'Languages',
+'Choose your language':'Choose your language','Security dashboard':'Security report','Checks this session':'Checks wey you do','Warnings this session':'Warnings wey show','Operating mode':'How e dey work','Offline ready':'E fit work without data',
+'What Cyber Mama can do':'Wetin Cyber Mama fit do','Competition demonstration':'How to show judges','Guardian Mode':'Protector mode','Scam Link Checker':'Link checker','Scam Message Detector':'Scam message checker','Password Strength Checker':'Password checker','App & Malware Safety':'App and virus safety','Cyber Assistant':'Cyber helper','Cybersecurity Academy':'Cyber safety school',
+'Analyse Link':'Check link','Analyse Message':'Check message','Analyse with Guardian':'Check am','Try suspicious example':'Try example wey look suspicious','Try scam example':'Try scam example','Check Strength':'Check password','Review Warning Signs':'Check warning signs','Ask Cyber Mama':'Ask Cyber Mama',
+'Website address':'Website address','Paste a message':'Put message here','Sample password':'Example password','Show sample':'Show example','Ask about phishing, passwords, scams, malware, privacy or hacked accounts.':'Ask about scam, password, virus or account wey person enter.',
+'Never share your password or one-time login code with anyone.':'No give anybody your password or one-time code.',
+'Your selected language applies across the app where translations are available. Preview languages (including the newly added choices) display English until their translations are completed and checked by fluent speakers. Read-aloud may use an English voice for those options. Some detailed results may still appear in English.':'Choose language make you see Cyber Mama for your language.'
+},
+yo:{
+'Choose language':'Yan èdè','Read this page':'Ka ojú ìwé yìí','Stop':'Dúró','Bigger text':'Jẹ́ kí lẹ́tà tóbi',
+'Home':'Ilé','Guardian':'Olùṣọ́','Links':'Àwọn ìjápọ̀','Scams':'Jìbìtì','Password':'Ọ̀rọ̀ aṣínà','App Safety':'Ààbò àpù','Assistant':'Olùrànlọ́wọ́','Academy':'Ẹ̀kọ́','Alerts':'Ìkìlọ̀','Languages':'Àwọn èdè',
+'Choose your language':'Yan èdè rẹ','Security dashboard':'Àkótán ààbò','Checks this session':'Àwọn àyẹ̀wò','Warnings this session':'Àwọn ìkìlọ̀','Operating mode':'Ọ̀nà ìṣiṣẹ́','Offline ready':'Ó lè ṣiṣẹ́ láìsí íńtánẹ́ẹ̀tì',
+'What Cyber Mama can do':'Ohun tí Cyber Mama lè ṣe','Guardian Mode':'Ìtọ́jú ààbò','Scam Link Checker':'Àyẹ̀wò ìjápọ̀','Scam Message Detector':'Àyẹ̀wò ìfiranṣẹ́ jìbìtì','Password Strength Checker':'Àyẹ̀wò ọ̀rọ̀ aṣínà','Cyber Assistant':'Olùrànlọ́wọ́ Cyber','Cybersecurity Academy':'Ẹ̀kọ́ ààbò orí ayélujára',
+'Analyse Link':'Ṣàyẹ̀wò ìjápọ̀','Analyse Message':'Ṣàyẹ̀wò ìfiranṣẹ́','Analyse with Guardian':'Ṣàyẹ̀wò','Try suspicious example':'Gbìyànjú àpẹẹrẹ','Try scam example':'Gbìyànjú àpẹẹrẹ jìbìtì','Check Strength':'Ṣàyẹ̀wò agbára','Ask Cyber Mama':'Béèrè lọ́wọ́ Cyber Mama',
+'Website address':'Àdírẹ́sì wẹ́ẹ̀bù','Paste a message':'Fi ìfiranṣẹ́ síbí','Sample password':'Àpẹẹrẹ ọ̀rọ̀ aṣínà','Show sample':'Fi àpẹẹrẹ hàn',
+'Never share your password or one-time login code with anyone.':'Má ṣe sọ ọ̀rọ̀ aṣínà tàbí kóòdù rẹ fún ẹnikẹ́ni.'
+},
+ig:{
+'Choose language':'Họrọ asụsụ','Read this page':'Gụpụta ibe a','Stop':'Kwụsị','Bigger text':'Mee mkpụrụedemede buru ibu',
+'Home':'Ụlọ','Guardian':'Nche','Links':'Njikọ','Scams':'Aghụghọ','Password':'Okwuntughe','App Safety':'Nche ngwa','Assistant':'Onye enyemaka','Academy':'Ọmụmụ','Alerts':'Ịdọ aka ná ntị','Languages':'Asụsụ',
+'Choose your language':'Họrọ asụsụ gị','Security dashboard':'Nchịkọta nchekwa','Checks this session':'Nnyocha emere','Warnings this session':'Ịdọ aka ná ntị','Operating mode':'Ụdị ọrụ','Offline ready':'Ọ na-arụ ọrụ na-enweghị ịntanetị',
+'What Cyber Mama can do':'Ihe Cyber Mama nwere ike ime','Guardian Mode':'Ụdị nchekwa','Scam Link Checker':'Nyocha njikọ','Scam Message Detector':'Nyocha ozi aghụghọ','Password Strength Checker':'Nyocha okwuntughe','Cyber Assistant':'Onye enyemaka Cyber','Cybersecurity Academy':'Ụlọ akwụkwọ nchekwa ịntanetị',
+'Analyse Link':'Nyochaa njikọ','Analyse Message':'Nyochaa ozi','Analyse with Guardian':'Nyochaa','Try suspicious example':'Nwaa ihe atụ','Try scam example':'Nwaa ozi aghụghọ','Check Strength':'Nyochaa ike','Ask Cyber Mama':'Jụọ Cyber Mama',
+'Website address':'Adreesị webụsaịtị','Paste a message':'Tinye ozi ebe a','Sample password':'Okwuntughe atụ','Show sample':'Gosi atụ',
+'Never share your password or one-time login code with anyone.':'Enyela onye ọ bụla okwuntughe gị ma ọ bụ koodu nkwenye gị.'
+},
+ha:{
+'Choose language':'Zaɓi harshe','Read this page':'Karanta wannan shafi','Stop':'Tsaya','Bigger text':'Ƙara girman rubutu',
+'Home':'Gida','Guardian':'Mai tsaro','Links':'Hanyoyin yanar gizo','Scams':'Zamba','Password':'Kalmar sirri','App Safety':'Tsaron manhaja','Assistant':'Mataimaki','Academy':'Darussa','Alerts':'Gargaɗi','Languages':'Harsuna',
+'Choose your language':'Zaɓi harshenka','Security dashboard':'Takaitaccen tsaro','Checks this session':'Gwaje-gwajen da aka yi','Warnings this session':'Gargaɗin da aka samu','Operating mode':'Yanayin aiki','Offline ready':'Yana aiki ba tare da intanet ba',
+'What Cyber Mama can do':'Abin da Cyber Mama zai iya yi','Guardian Mode':'Yanayin tsaro','Scam Link Checker':'Mai duba hanyar yanar gizo','Scam Message Detector':'Mai gano saƙon zamba','Password Strength Checker':'Mai duba ƙarfin kalmar sirri','Cyber Assistant':'Mataimakin Cyber','Cybersecurity Academy':'Darussan tsaron intanet',
+'Analyse Link':'Duba hanyar yanar gizo','Analyse Message':'Duba saƙo','Analyse with Guardian':'Yi bincike','Try suspicious example':'Gwada misali','Try scam example':'Gwada misalin zamba','Check Strength':'Duba ƙarfi','Ask Cyber Mama':'Tambayi Cyber Mama',
+'Website address':'Adireshin yanar gizo','Paste a message':'Manna saƙo a nan','Sample password':'Misalin kalmar sirri','Show sample':'Nuna misali',
+'Never share your password or one-time login code with anyone.':'Kada ka ba kowa kalmar sirrinka ko lambar tabbatarwa.'
+}};
+
+const extra={
+pcm:{
+'Your smart digital safety companion • Built for everyday internet users':'Your digital safety helper • For everybody wey dey use internet',
+'Understand risks. Protect your digital life.':'Know danger. Protect yourself online.',
+'Check suspicious links and messages for warning signs such as HTTP, misleading hostnames, shortened links, and risky downloads. Built-in checks work offline.':'Check links and messages wey look somehow. Learn how to stay safe. Basic checks fit work without data.',
+'Educational risk screening, not antivirus software or a guarantee of safety.':'Na warning checker, no be antivirus. E no fit promise say everything safe.',
+'Select a language right from the home screen to read Cyber Mama’s safety advice.':'Choose your language here make you understand safety advice.',
+'One place to screen a link or a message and get an explanation.':'Check link or message here, we go explain the result.',
+'What would you like to check?':'Wetin you wan check?',
+'Website link':'Website link','Suspicious message':'Message wey look suspicious',
+'Checks for common URL warning signs. It does not visit the link or consult a live threat database.':'E dey find warning signs for link. E no open the link or check live danger list.',
+'App came from an unknown download link or unofficial store':'App come from unknown place',
+'App asks for permissions unrelated to its purpose':'App dey ask for permission wey e no need',
+'Someone is pressuring me to install it urgently':'Person dey rush me to install am',
+'App has unclear developer details or suspicious reviews':'Person wey make app no clear or reviews look fake',
+'This is an offline knowledge assistant with prepared guidance, not a live generative AI model.':'This helper get prepared answers; e no be live AI.',
+'No checks yet. Try Guardian Mode.':'You never check anything. Try Protector.',
+'Never enter your real password into a demonstration app.':'No put your real password inside this demo.',
+'Passwords are not saved, transmitted or added to history.':'We no dey save or send passwords.',
+'Your selected language applies across the app where translations are available. Preview languages (including the newly added choices) display English until their translations are completed and checked by fluent speakers. Read-aloud may use an English voice for those options. Some detailed results may still appear in English.':'Your language go show for many parts. Some long results still dey English.',
+'Choose your preferred language. Main controls, instructions and safety advice will follow your choice where translations are available.':'Choose language wey you understand. Some details still dey English.',
+'No safety guarantee':'We no fit promise full safety'
+},
+yo:{
+'Your smart digital safety companion • Built for everyday internet users':'Olùrànlọ́wọ́ ààbò rẹ lórí ayélujára',
+'Understand risks. Protect your digital life.':'Mọ ewu. Dáàbò bo ara rẹ lórí ayélujára.',
+'What would you like to check?':'Kí ni o fẹ́ ṣàyẹ̀wò?',
+'Website link':'Ìjápọ̀ wẹ́ẹ̀bù','Suspicious message':'Ìfiranṣẹ́ tí ó fura',
+'One place to screen a link or a message and get an explanation.':'Ṣàyẹ̀wò ìjápọ̀ tàbí ìfiranṣẹ́, kí o sì rí àlàyé.',
+'App came from an unknown download link or unofficial store':'Àpù náà wá láti ibi tí a kò mọ̀',
+'App asks for permissions unrelated to its purpose':'Àpù ń béèrè ìyọ̀nda tí kò yẹ',
+'Someone is pressuring me to install it urgently':'Ẹnikan ń fipá mú mi láti fi àpù náà sílẹ̀',
+'App has unclear developer details or suspicious reviews':'A kò mọ ẹni tó ṣe àpù náà dáadáa',
+'No checks yet. Try Guardian Mode.':'Kò sí àyẹ̀wò síbẹ̀. Gbìyànjú Olùṣọ́.',
+'Passwords are not saved, transmitted or added to history.':'A kò fi ọ̀rọ̀ aṣínà pamọ́ tàbí rán án lọ.',
+'Your selected language applies across the app where translations are available. Preview languages (including the newly added choices) display English until their translations are completed and checked by fluent speakers. Read-aloud may use an English voice for those options. Some detailed results may still appear in English.':'Èdè tí o yàn yóò hàn ní àwọn apá tí a ti túmọ̀. Àwọn àlàyé kan ṣì lè jẹ́ Gẹ̀ẹ́sì.',
+'Choose your preferred language. Main controls, instructions and safety advice will follow your choice where translations are available.':'Yan èdè rẹ. Àwọn ìtọ́nisọ́nà tí a túmọ̀ yóò hàn ní èdè náà.'
+},
+ig:{
+'Your smart digital safety companion • Built for everyday internet users':'Onye enyemaka nchekwa gị n’ịntanetị',
+'Understand risks. Protect your digital life.':'Ghọta ihe egwu. Chebe onwe gị n’ịntanetị.',
+'What would you like to check?':'Gịnị ka ị chọrọ inyocha?',
+'Website link':'Njikọ webụsaịtị','Suspicious message':'Ozi a na-enyo enyo',
+'One place to screen a link or a message and get an explanation.':'Nyochaa njikọ ma ọ bụ ozi wee nweta nkọwa.',
+'App came from an unknown download link or unofficial store':'Ngwa sitere na ebe a na-amaghị',
+'App asks for permissions unrelated to its purpose':'Ngwa na-arịọ ikike na-adịghị mkpa',
+'Someone is pressuring me to install it urgently':'Mmadụ na-amanye m ịwụnye ngwa ngwa',
+'App has unclear developer details or suspicious reviews':'A maghị onye mepụtara ngwa nke ọma',
+'No checks yet. Try Guardian Mode.':'Enwebeghị nyocha. Nwaa ọnọdụ nche.',
+'Passwords are not saved, transmitted or added to history.':'A naghị echekwa ma ọ bụ zipụ okwuntughe.',
+'Your selected language applies across the app where translations are available. Preview languages (including the newly added choices) display English until their translations are completed and checked by fluent speakers. Read-aloud may use an English voice for those options. Some detailed results may still appear in English.':'Asụsụ ị họọrọ ga-apụta n’ebe ntụgharị dị. Nkọwa ụfọdụ ka nwere ike ịdị n’Bekee.',
+'Choose your preferred language. Main controls, instructions and safety advice will follow your choice where translations are available.':'Họrọ asụsụ gị. Ntuziaka a tụgharịrị ga-apụta n’asụsụ ahụ.'
+},
+ha:{
+'Your smart digital safety companion • Built for everyday internet users':'Mataimakinka wajen tsaron intanet',
+'Understand risks. Protect your digital life.':'Fahimci haɗari. Kare kanka a intanet.',
+'What would you like to check?':'Me kake son dubawa?',
+'Website link':'Hanyar yanar gizo','Suspicious message':'Saƙon da ake zargi',
+'One place to screen a link or a message and get an explanation.':'Duba hanyar yanar gizo ko saƙo domin samun bayani.',
+'App came from an unknown download link or unofficial store':'Manhaja ta fito daga wurin da ba a sani ba',
+'App asks for permissions unrelated to its purpose':'Manhaja tana neman izini marar amfani',
+'Someone is pressuring me to install it urgently':'Wani yana matsa mini in girka ta da sauri',
+'App has unclear developer details or suspicious reviews':'Ba a san mai ƙera manhajar sosai ba',
+'No checks yet. Try Guardian Mode.':'Ba a yi gwaji ba tukuna. Gwada Mai tsaro.',
+'Passwords are not saved, transmitted or added to history.':'Ba a adana ko aika kalmomin sirri.',
+'Your selected language applies across the app where translations are available. Preview languages (including the newly added choices) display English until their translations are completed and checked by fluent speakers. Read-aloud may use an English voice for those options. Some detailed results may still appear in English.':'Harshen da ka zaɓa zai bayyana inda aka fassara. Wasu bayanai na iya kasancewa da Turanci.',
+'Choose your preferred language. Main controls, instructions and safety advice will follow your choice where translations are available.':'Zaɓi harshenka. Umarnin da aka fassara za su bayyana a wannan harshen.'
+}};
+for(const code of Object.keys(extra))Object.assign(T[code],extra[code]);
+
+
+const extraTranslations={
+fr:{'Choose language':'Choisir la langue','Read this page':'Lire cette page','Stop':'Arrêter','Bigger text':'Agrandir le texte','Home':'Accueil','Guardian':'Protection','Links':'Liens','Scams':'Arnaques','Password':'Mot de passe','App Safety':'Sécurité des applications','Assistant':'Assistant','Academy':'Cours','Alerts':'Alertes','Languages':'Langues','Guardian Mode':'Mode protection','Scam Link Checker':'Vérification des liens','Scam Message Detector':'Détection des arnaques','Password Strength Checker':'Force du mot de passe','Cyber Assistant':'Assistant cyber','Cybersecurity Academy':'Académie cybersécurité','Analyse Link':'Analyser le lien','Analyse Message':'Analyser le message','Analyse with Guardian':'Analyser','Check Strength':'Vérifier','Ask Cyber Mama':'Demander à Cyber Mama','Security dashboard':'Tableau de bord de sécurité','Website address':'Adresse du site web','Choose your language':'Choisissez votre langue'},
+es:{'Choose language':'Elegir idioma','Read this page':'Leer esta página','Stop':'Detener','Bigger text':'Texto más grande','Home':'Inicio','Guardian':'Protección','Links':'Enlaces','Scams':'Estafas','Password':'Contraseña','App Safety':'Seguridad de aplicaciones','Assistant':'Asistente','Academy':'Aprender','Alerts':'Alertas','Languages':'Idiomas','Guardian Mode':'Modo protección','Scam Link Checker':'Verificador de enlaces','Scam Message Detector':'Detector de estafas','Password Strength Checker':'Seguridad de contraseñas','Cyber Assistant':'Asistente de ciberseguridad','Cybersecurity Academy':'Academia de ciberseguridad','Analyse Link':'Analizar enlace','Analyse Message':'Analizar mensaje','Analyse with Guardian':'Analizar','Check Strength':'Comprobar','Ask Cyber Mama':'Preguntar a Cyber Mama','Security dashboard':'Panel de seguridad','Website address':'Dirección web','Choose your language':'Elige tu idioma'},
+pt:{'Choose language':'Escolher idioma','Read this page':'Ler esta página','Stop':'Parar','Bigger text':'Texto maior','Home':'Início','Guardian':'Proteção','Links':'Links','Scams':'Golpes','Password':'Senha','App Safety':'Segurança dos aplicativos','Assistant':'Assistente','Academy':'Aprender','Alerts':'Alertas','Languages':'Idiomas','Guardian Mode':'Modo de proteção','Scam Link Checker':'Verificador de links','Scam Message Detector':'Detector de golpes','Password Strength Checker':'Força da senha','Cyber Assistant':'Assistente de segurança','Cybersecurity Academy':'Academia de cibersegurança','Analyse Link':'Analisar link','Analyse Message':'Analisar mensagem','Analyse with Guardian':'Analisar','Check Strength':'Verificar','Ask Cyber Mama':'Perguntar ao Cyber Mama','Security dashboard':'Painel de segurança','Website address':'Endereço do site','Choose your language':'Escolha seu idioma'},
+ar:{'Choose language':'اختر اللغة','Read this page':'اقرأ هذه الصفحة','Stop':'إيقاف','Bigger text':'تكبير النص','Home':'الرئيسية','Guardian':'الحماية','Links':'الروابط','Scams':'الاحتيال','Password':'كلمة المرور','App Safety':'أمان التطبيقات','Assistant':'المساعد','Academy':'التعلم','Alerts':'التنبيهات','Languages':'اللغات','Guardian Mode':'وضع الحماية','Scam Link Checker':'فحص الروابط','Scam Message Detector':'كشف رسائل الاحتيال','Password Strength Checker':'فحص قوة كلمة المرور','Cyber Assistant':'المساعد السيبراني','Cybersecurity Academy':'أكاديمية الأمن السيبراني','Analyse Link':'فحص الرابط','Analyse Message':'فحص الرسالة','Analyse with Guardian':'تحليل','Check Strength':'فحص القوة','Ask Cyber Mama':'اسأل سايبر ماما','Security dashboard':'لوحة الأمان','Website address':'عنوان الموقع','Choose your language':'اختر لغتك'},
+bin:{}, efi:{}, ibb:{}, urh:{}, tiv:{}, kr:{}, ijc:{}, nup:{}, igb:{}, ann:{} // Preview languages use English fallback pending fluent-speaker review.
+};
+Object.assign(T,extraTranslations);
+const extraTips={fr:'Ne communiquez jamais votre mot de passe ou votre code de connexion.',es:'Nunca compartas tu contraseña ni tu código de acceso.',pt:'Nunca compartilhe sua senha ou código de acesso.',ar:'لا تشارك كلمة المرور أو رمز تسجيل الدخول مع أي شخص.',bin:'Edo/Bini translation is being prepared with native-speaker review. Safety guidance is shown in English for now.',efi:'Efik translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',ibb:'Ibibio translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',urh:'Urhobo translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',tiv:'Tiv translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',kr:'Kanuri translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',ijc:'Ijaw / Izon translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',nup:'Nupe translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',igb:'Igala translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.',ann:'Annang translation is not yet available. English guidance is shown until a fluent speaker reviews the translation.'};
+Object.assign(tips,extraTips);
+
+const originals=new Map();
+const skip=(n)=>n.parentElement && /^(SCRIPT|STYLE|OPTION|TEXTAREA)$/i.test(n.parentElement.tagName);
+const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+while(walker.nextNode()){let n=walker.currentNode;if(!skip(n)&&n.textContent.trim())originals.set(n,n.textContent)}
+const placeholders=new Map();
+for(const e of document.querySelectorAll('[placeholder],[aria-label]'))for(const a of ['placeholder','aria-label'])if(e.hasAttribute(a))placeholders.set(e.getAttribute('id')+'|'+a,{e,a,value:e.getAttribute(a)});
+const opts=new Map();for(const e of document.querySelectorAll('option'))opts.set(e,e.textContent);
+const names={en:'en-NG',pcm:'en-NG',yo:'yo-NG',ig:'ig-NG',ha:'ha-NG',bin:'en-NG',efi:'en-NG',ibb:'en-NG',urh:'en-NG',tiv:'en-NG',kr:'en-NG',ijc:'en-NG',nup:'en-NG',igb:'en-NG',ann:'en-NG',fr:'fr-FR',es:'es-ES',pt:'pt-PT',ar:'ar-SA'};
+let lang='en';
+function translate(){
+lang=document.getElementById('globalLang').value;
+const dict=T[lang]||{};
+for(const [n,original] of originals){
+ const trimmed=original.trim();
+ let replacement=dict[trimmed];
+ if(!replacement){
+   const icon=trimmed.match(/^([\p{Extended_Pictographic}\uFE0F\u200D🔐🔗🛡️🌍🚨🎓🔔🦠🤖🏠]+)\s+(.+)$/u);
+   if(icon&&dict[icon[2]])replacement=icon[1]+' '+dict[icon[2]];
+ }
+ n.textContent=replacement?original.replace(trimmed,replacement):original;
+}
+for(const [e,v] of opts)e.textContent=dict[v.trim()]||v;
+for(const {e,a,value} of placeholders.values())e.setAttribute(a,dict[value]||value);
+document.getElementById('chooseLabel').textContent='🌍 '+(dict['Choose language']||'Choose language');
+document.getElementById('speakPage').textContent='🔊 '+(dict['Read this page']||'Read this page');
+document.getElementById('stopSpeech').textContent='⏹ '+(dict['Stop']||'Stop');
+document.getElementById('bigText').textContent='A+ '+(dict['Bigger text']||'Bigger text');
+document.documentElement.lang=lang==='pcm'||lang==='bin'?'en':lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+['homeLanguage','language'].forEach(id=>{let e=document.getElementById(id);if(e)e.value=lang});
+if(typeof tips!=='undefined'){if(document.getElementById('homeTip'))document.getElementById('homeTip').textContent=tips[lang];if(document.getElementById('tip'))document.getElementById('tip').textContent=tips[lang]}
+try{localStorage.setItem('cyberMamaLang',lang)}catch(e){}
+}
+document.getElementById('globalLang').addEventListener('change',translate);
+document.getElementById('speakPage').onclick=function(){
+ if(!('speechSynthesis' in window)){alert('Audio reading is not available in this browser.');return}
+ speechSynthesis.cancel();
+ const panel=document.querySelector('.panel.active');
+ const text=(panel?panel.innerText:document.body.innerText).slice(0,3500);
+ const available=speechSynthesis.getVoices();
+ if(lang!=='en' && lang!=='pcm'){
+   const matches=available.filter(v=>v.lang.toLowerCase().startsWith(names[lang].split('-')[0].toLowerCase()));
+   if(!matches.length){alert('A voice for this language is not installed. Read aloud is unavailable; Cyber Mama will not substitute an English voice.');return}
+ }
+ const utterance=new SpeechSynthesisUtterance(text);
+ if(lang!=='en' && lang!=='pcm'){
+   const match=available.find(v=>v.lang.toLowerCase().startsWith(names[lang].split('-')[0].toLowerCase()));
+   if(match)utterance.voice=match;
+ }
+ utterance.lang=names[lang];utterance.rate=.86;speechSynthesis.speak(utterance);
+};
+document.getElementById('stopSpeech').onclick=()=>{if('speechSynthesis' in window)speechSynthesis.cancel()};
+document.getElementById('bigText').onclick=()=>document.body.classList.toggle('large-text');
+for(const id of ['homeLanguage','language']){
+ const e=document.getElementById(id);
+ if(e)e.addEventListener('change',()=>{document.getElementById('globalLang').value=e.value;translate()});
+}
+try{lang=localStorage.getItem('cyberMamaLang')||'en'}catch(e){}
+document.getElementById('globalLang').value=lang;translate();
+})();
+</script>
+
+<script>
+/* Accessibility patch: localize every newly generated security report.
+   Conservative summaries avoid giving an unsupported "safe" verdict. */
+(()=>{
+const words={
+ en:{finding:'Findings',next:'Next step',high:'Warning signs detected',caution:'Please be careful',low:'No obvious signs detected',generic:'This basic check found indicators that need attention. It cannot guarantee safety.',clear:'The basic check did not find common warning signs. This does not prove safety.',advice:'Do not share passwords or codes. Verify independently through an official source.',score:'Quiz score',done:'Review the lessons and try again.',question:'Please enter information to check.',history:'No checks yet. Try Guardian Mode.',assistant:'Cyber Mama can explain scams, phishing, passwords, suspicious apps and online privacy.'},
+ pcm:{finding:'Wetin we see',next:'Wetin you go do',high:'We see warning signs',caution:'Abeg shine your eye',low:'We no see clear warning sign',generic:'This simple check see something wey fit be risky. E no mean say we know everything.',clear:'This simple check no see common warning sign. E no mean say e safe.',advice:'No give anybody password or OTP. Confirm from official place.',score:'Your quiz score',done:'Read the lessons and try again.',question:'Abeg put wetin you wan check.',history:'You never check anything. Try Protector.',assistant:'Cyber Mama fit explain scam, fake message, password, bad app and privacy.'},
+ yo:{finding:'Ohun tí a rí',next:'Ìgbésẹ̀ tó kàn',high:'A rí àmì ìkìlọ̀',caution:'Ṣọ́ra',low:'A kò rí àmì ewu tó hàn gbangba',generic:'Àyẹ̀wò rọrùn yìí rí ohun tí ó yẹ kí a ṣọ́ra fún. Kì í ṣe ìdánilójú ààbò.',clear:'A kò rí àwọn àmì ewu tí a mọ̀. Èyí kò túmọ̀ sí pé ó dájú pé ó ní ààbò.',advice:'Má ṣe fún ẹnikẹ́ni ní ọ̀rọ̀ aṣínà tàbí kóòdù. Ṣàyẹ̀wò pẹ̀lú orísun ìjọba tàbí ilé-iṣẹ́ gidi.',score:'Àbájáde ìdánwò',done:'Ka ẹ̀kọ́ náà kí o sì tún gbìyànjú.',question:'Jọ̀wọ́ tẹ ohun tí o fẹ́ ṣàyẹ̀wò.',history:'Kò sí àyẹ̀wò síbẹ̀. Gbìyànjú Olùṣọ́.',assistant:'Cyber Mama lè ṣàlàyé jìbìtì, ọ̀rọ̀ aṣínà àti ààbò orí ayélujára.'},
+ ig:{finding:'Ihe nyocha gosiri',next:'Ihe ị ga-eme ọzọ',high:'Achọpụtara ihe ịdọ aka ná ntị dị mkpa',caution:'Kpachara anya',low:'Achọpụtaghị ihe egwu pụtara ìhè',generic:'Nnyocha a dị mfe hụrụ ihe kwesịrị ka e lebara anya. Ọ naghị ekwe nkwa na ihe ahụ dị nchebe.',clear:'Achọpụtaghị ihe ịdọ aka ná ntị a na-ahụkarị. Nke a apụtaghị na ihe ahụ dị nchebe.',advice:'Ekekọrịtala okwuntughe ma ọ bụ koodu nzuzo gị. Kwenye ozi ahụ site na ebe gọọmentị ma ọ bụ ụlọ ọrụ a pụrụ ịtụkwasị obi.',score:'Akara ule',done:'Gụọ ihe mmụta ndị ahụ ma nwaa ọzọ.',question:'Biko tinye ihe ịchọrọ inyocha.',history:'Enwebeghị nyocha. Nwaa Ọnọdụ Nchebe.',assistant:'Cyber Mama nwere ike ịkọwa wayo, ozi aghụghọ, okwuntughe, ngwa na-enyo enyo na nchekwa ịntanetị.'},
+ ha:{finding:'Abin da muka gano',next:'Mataki na gaba',high:'An gano alamun haɗari',caution:'Yi hankali',low:'Ba a ga alamar haɗari a fili ba',generic:'Wannan bincike mai sauƙi ya ga abin da ya kamata a kula da shi. Ba ya tabbatar da tsaro.',clear:'Ba a ga alamun haɗari na yau da kullum ba. Wannan ba tabbacin tsaro ba ne.',advice:'Kada ka ba kowa kalmar sirri ko lambar tabbatarwa. Tabbatar ta hanyar hukuma.',score:'Sakamakon jarabawa',done:'Karanta darussan sannan ka sake gwadawa.',question:'Da fatan a shigar da abin da za a bincika.',history:'Ba a yi bincike ba tukuna. Gwada Mai tsaro.',assistant:'Cyber Mama na iya bayani kan zamba, kalmar sirri da tsaron intanet.'}
+};
+const oldResult=window.result;
+window.result=function(id,title,points,advice,level,log=true){
+ const lang=document.getElementById('globalLang')?.value||document.getElementById('homeLanguage')?.value||'en';
+ if(!['pcm','yo','ig','ha'].includes(lang))return oldResult(id,title,points,advice,level,log);
+ // Still call original result to preserve counters and alert history.
+ oldResult(id,title,points,advice,level,log);
+ const w=words[lang]||words.en;
+ const risk=level==='high'?w.high:level==='caution'?w.caution:w.low;
+ const message=level==='low'?w.clear:w.generic;
+ const node=document.getElementById(id);
+ let special='';
+ if(id==='quizResult')special=w.score+': '+((title.match(/\d+\/3/)||[])[0]||'')+'\n'+w.done;
+ else if(id==='answer')special=w.assistant;
+ else if(id==='pwdResult')special=w.advice;
+ else if(id==='appResult')special='Lelee onye mepụtara ngwa ahụ, ikike ọ na-arịọ, nyocha ndị mmadụ na ebe e si budata ya.';
+ else if(!points.length)special=w.question;
+ else if(id==='urlResult')special='Nsonaazụ a sitere n’iwu nyocha dị mfe nke njikọ weebụ. A naghị emeghe njikọ ahụ ma ọ bụ tụnyere ya na nchekwa data egwu dị ndụ.';
+ else if(id==='msgResult')special='Nsonaazụ a sitere n’iwu nyocha dị mfe nke ozi. Kwenye arịrịọ a na-atụghị anya ya site n’ụzọ gọọmentị.';
+ else if(id==='gresult')special='Nyochaa njikọ ma ọ bụ ozi ahụ nke ọma. Ejila okwuntughe ma ọ bụ koodu nzuzo zaghachi arịrịọ a na-atụghị anya ya.';
+ else special=message;
+ // Do not append the original English findings/advice for supported languages.
+ node.textContent=risk+'\n\n'+w.finding+': '+special+'\n\n'+w.next+': '+w.advice;
+};
+// Keep voice tied to the currently selected language. Device voices may be missing.
+const speak=document.getElementById('speakPage');
+if(speak)speak.title='Audio depends on voices installed on this Android device.';
+})();
+</script>
+<style>#translationStatus{background:#fff3cf;color:#3d300a;padding:10px;border-radius:10px;margin:8px 0;font-size:14px;line-height:1.5}#translationStatus[hidden]{display:none}</style>
+<script>
+(function(){
+ const complete=['en'];const partial=['pcm','yo','ig','ha','fr','es','pt','ar'];
+ const status=document.createElement('div');status.id='translationStatus';status.setAttribute('role','status');
+ const bar=document.querySelector('.accessbar');bar.insertAdjacentElement('afterend',status);
+ function update(){
+  const sel=document.getElementById('globalLang');const value=sel.value;
+  const name=sel.selectedOptions[0]?.textContent.replace(/—.*/, '').trim()||value;
+  if(value==='en'){status.hidden=true;return}
+  status.hidden=false;
+  if(partial.includes(value))status.textContent='🌍 '+name+': Translation is incomplete. Some screens and results are still in English. Audio works only when a matching device voice is installed.';
+  else status.textContent='🌍 '+name+': Translation and voice are not available yet. This is a selectable preview; most content remains in English. We will not claim it is translated.';
+ }
+ for(const id of ['globalLang','homeLanguage','language'])document.getElementById(id)?.addEventListener('change',()=>setTimeout(update,0));
+ update();
+})();
+</script>
+<script>
+/* Language expansion pass: core interface + generated result summaries.
+   These are initial translations and need fluent-speaker review before release. */
+(function(){
+const D={
+fr:{
+'Choose language':'Choisir la langue','Read this page':'Lire cette page','Stop':'Arrêter','Bigger text':'Agrandir le texte',
+'🏠 Home':'🏠 Accueil','🛡️ Guardian':'🛡️ Protection','🔗 Links':'🔗 Liens','🚨 Scams':'🚨 Arnaques','🔐 Password':'🔐 Mot de passe','🦠 App Safety':'🦠 Sécurité des applications','🤖 Assistant':'🤖 Assistant','🎓 Academy':'🎓 Cours','🔔 Alerts':'🔔 Alertes','🌍 Languages':'🌍 Langues',
+'Choose your language':'Choisissez votre langue','Security dashboard':'Tableau de bord de sécurité','Checks this session':'Vérifications de cette session','Warnings this session':'Alertes de cette session','Operating mode':'Mode de fonctionnement','Offline ready':'Fonctionne hors ligne',
+'What Cyber Mama can do':'Ce que Cyber Mama peut faire','Competition demonstration':'Démonstration pour le concours','Guardian Mode':'Mode protection','Scam Link Checker':'Vérificateur de liens','Scam Message Detector':'Détecteur de messages frauduleux','Password Strength Checker':'Vérificateur de mot de passe','App & Malware Safety':'Sécurité des applications et logiciels malveillants','Cyber Assistant':'Assistant cyber','Cybersecurity Academy':'Académie de cybersécurité',
+'Analyse Link':'Analyser le lien','Analyse Message':'Analyser le message','Analyse with Guardian':'Analyser avec la protection','Try suspicious example':'Essayer un exemple suspect','Try scam example':'Essayer un exemple d’arnaque','Check Strength':'Vérifier la robustesse','Review Warning Signs':'Examiner les signes d’alerte','Ask Cyber Mama':'Demander à Cyber Mama',
+'Website address':'Adresse du site web','Paste a message':'Collez un message','Sample password':'Mot de passe exemple','Show sample':'Afficher un exemple','Never share your password or one-time login code with anyone.':'Ne partagez jamais votre mot de passe ni votre code de connexion.',
+'Your smart digital safety companion • Built for everyday internet users':'Votre compagnon de sécurité numérique • Pour tous les internautes','Understand risks. Protect your digital life.':'Comprenez les risques. Protégez votre vie numérique.',
+'No checks yet. Try Guardian Mode.':'Aucune vérification pour le moment. Essayez le mode protection.',
+'Findings':'Résultats','Next step':'Étape suivante','Warning signs detected':'Signes d’alerte détectés','Please be careful':'Soyez prudent','No obvious signs detected':'Aucun signe évident détecté',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Cette vérification simple a trouvé des éléments à examiner. Elle ne garantit pas la sécurité.',
+'The basic check did not find common warning signs. This does not prove safety.':'Cette vérification simple n’a pas trouvé de signes habituels. Cela ne prouve pas que c’est sûr.',
+'Do not share passwords or codes. Verify independently through an official source.':'Ne partagez pas vos mots de passe ni vos codes. Vérifiez auprès d’une source officielle.',
+'Quiz score':'Résultat du quiz','Review the lessons and try again.':'Relisez les leçons et réessayez.','Please enter information to check.':'Veuillez saisir les informations à vérifier.'
+},
+es:{
+'Choose language':'Elegir idioma','Read this page':'Leer esta página','Stop':'Detener','Bigger text':'Aumentar texto',
+'🏠 Home':'🏠 Inicio','🛡️ Guardian':'🛡️ Protección','🔗 Links':'🔗 Enlaces','🚨 Scams':'🚨 Estafas','🔐 Password':'🔐 Contraseña','🦠 App Safety':'🦠 Seguridad de apps','🤖 Assistant':'🤖 Asistente','🎓 Academy':'🎓 Academia','🔔 Alerts':'🔔 Alertas','🌍 Languages':'🌍 Idiomas',
+'Choose your language':'Elige tu idioma','Security dashboard':'Panel de seguridad','Checks this session':'Comprobaciones de esta sesión','Warnings this session':'Alertas de esta sesión','Operating mode':'Modo de funcionamiento','Offline ready':'Funciona sin conexión',
+'What Cyber Mama can do':'Qué puede hacer Cyber Mama','Competition demonstration':'Demostración para el concurso','Guardian Mode':'Modo protección','Scam Link Checker':'Comprobador de enlaces','Scam Message Detector':'Detector de mensajes fraudulentos','Password Strength Checker':'Comprobador de contraseñas','App & Malware Safety':'Seguridad de apps y malware','Cyber Assistant':'Asistente cibernético','Cybersecurity Academy':'Academia de ciberseguridad',
+'Analyse Link':'Analizar enlace','Analyse Message':'Analizar mensaje','Analyse with Guardian':'Analizar con protección','Try suspicious example':'Probar ejemplo sospechoso','Try scam example':'Probar ejemplo de estafa','Check Strength':'Comprobar seguridad','Review Warning Signs':'Revisar señales de alerta','Ask Cyber Mama':'Preguntar a Cyber Mama',
+'Website address':'Dirección del sitio web','Paste a message':'Pega un mensaje','Sample password':'Contraseña de ejemplo','Show sample':'Mostrar ejemplo','Never share your password or one-time login code with anyone.':'Nunca compartas tu contraseña ni tu código de acceso.',
+'Your smart digital safety companion • Built for everyday internet users':'Tu compañero de seguridad digital • Para todos los usuarios de internet','Understand risks. Protect your digital life.':'Comprende los riesgos. Protege tu vida digital.',
+'No checks yet. Try Guardian Mode.':'Aún no hay comprobaciones. Prueba el modo protección.',
+'Findings':'Hallazgos','Next step':'Siguiente paso','Warning signs detected':'Señales de alerta detectadas','Please be careful':'Ten cuidado','No obvious signs detected':'No se detectaron señales evidentes',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Esta comprobación básica encontró señales que requieren atención. No garantiza la seguridad.',
+'The basic check did not find common warning signs. This does not prove safety.':'La comprobación básica no encontró señales habituales. Esto no demuestra que sea seguro.',
+'Do not share passwords or codes. Verify independently through an official source.':'No compartas contraseñas ni códigos. Verifica por separado con una fuente oficial.',
+'Quiz score':'Resultado del cuestionario','Review the lessons and try again.':'Repasa las lecciones e inténtalo de nuevo.','Please enter information to check.':'Introduce la información que quieres comprobar.'
+},
+pt:{
+'Choose language':'Escolher idioma','Read this page':'Ler esta página','Stop':'Parar','Bigger text':'Aumentar texto',
+'🏠 Home':'🏠 Início','🛡️ Guardian':'🛡️ Proteção','🔗 Links':'🔗 Links','🚨 Scams':'🚨 Golpes','🔐 Password':'🔐 Senha','🦠 App Safety':'🦠 Segurança de apps','🤖 Assistant':'🤖 Assistente','🎓 Academy':'🎓 Academia','🔔 Alerts':'🔔 Alertas','🌍 Languages':'🌍 Idiomas',
+'Choose your language':'Escolha seu idioma','Security dashboard':'Painel de segurança','Checks this session':'Verificações desta sessão','Warnings this session':'Alertas desta sessão','Operating mode':'Modo de funcionamento','Offline ready':'Funciona offline',
+'What Cyber Mama can do':'O que Cyber Mama pode fazer','Competition demonstration':'Demonstração para a competição','Guardian Mode':'Modo proteção','Scam Link Checker':'Verificador de links','Scam Message Detector':'Detector de mensagens fraudulentas','Password Strength Checker':'Verificador de senhas','App & Malware Safety':'Segurança de apps e malware','Cyber Assistant':'Assistente cibernético','Cybersecurity Academy':'Academia de cibersegurança',
+'Analyse Link':'Analisar link','Analyse Message':'Analisar mensagem','Analyse with Guardian':'Analisar com proteção','Try suspicious example':'Testar exemplo suspeito','Try scam example':'Testar exemplo de golpe','Check Strength':'Verificar força','Review Warning Signs':'Rever sinais de alerta','Ask Cyber Mama':'Perguntar à Cyber Mama',
+'Website address':'Endereço do site','Paste a message':'Cole uma mensagem','Sample password':'Senha de exemplo','Show sample':'Mostrar exemplo','Never share your password or one-time login code with anyone.':'Nunca compartilhe sua senha nem seu código de acesso.',
+'Your smart digital safety companion • Built for everyday internet users':'Seu companheiro de segurança digital • Para quem usa a internet','Understand risks. Protect your digital life.':'Entenda os riscos. Proteja sua vida digital.',
+'No checks yet. Try Guardian Mode.':'Ainda não há verificações. Experimente o modo proteção.',
+'Findings':'Resultados','Next step':'Próximo passo','Warning signs detected':'Sinais de alerta detectados','Please be careful':'Tenha cuidado','No obvious signs detected':'Nenhum sinal evidente detectado',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Esta verificação básica encontrou sinais que merecem atenção. Não garante segurança.',
+'The basic check did not find common warning signs. This does not prove safety.':'A verificação básica não encontrou sinais comuns. Isso não prova que seja seguro.',
+'Do not share passwords or codes. Verify independently through an official source.':'Não compartilhe senhas nem códigos. Confirme por uma fonte oficial.',
+'Quiz score':'Resultado do questionário','Review the lessons and try again.':'Revise as lições e tente novamente.','Please enter information to check.':'Insira as informações para verificar.'
+},
+de:{
+'Choose language':'Sprache wählen','Read this page':'Diese Seite vorlesen','Stop':'Stopp','Bigger text':'Größerer Text',
+'🏠 Home':'🏠 Startseite','🛡️ Guardian':'🛡️ Schutz','🔗 Links':'🔗 Links','🚨 Scams':'🚨 Betrug','🔐 Password':'🔐 Passwort','🦠 App Safety':'🦠 App-Sicherheit','🤖 Assistant':'🤖 Assistent','🎓 Academy':'🎓 Lernbereich','🔔 Alerts':'🔔 Warnungen','🌍 Languages':'🌍 Sprachen',
+'Choose your language':'Wähle deine Sprache','Security dashboard':'Sicherheitsübersicht','Checks this session':'Prüfungen in dieser Sitzung','Warnings this session':'Warnungen in dieser Sitzung','Operating mode':'Betriebsmodus','Offline ready':'Offline verfügbar',
+'What Cyber Mama can do':'Was Cyber Mama kann','Competition demonstration':'Wettbewerbsdemo','Guardian Mode':'Schutzmodus','Scam Link Checker':'Link-Prüfung','Scam Message Detector':'Betrugsnachrichten erkennen','Password Strength Checker':'Passwortstärke prüfen','App & Malware Safety':'App- und Malware-Sicherheit','Cyber Assistant':'Cyber-Assistent','Cybersecurity Academy':'Cybersecurity-Lernbereich',
+'Analyse Link':'Link prüfen','Analyse Message':'Nachricht prüfen','Analyse with Guardian':'Mit Schutzmodus prüfen','Try suspicious example':'Verdächtiges Beispiel testen','Try scam example':'Betrugsbeispiel testen','Check Strength':'Stärke prüfen','Review Warning Signs':'Warnzeichen prüfen','Ask Cyber Mama':'Cyber Mama fragen',
+'Website address':'Webseitenadresse','Paste a message':'Nachricht einfügen','Sample password':'Beispielpasswort','Show sample':'Beispiel anzeigen','Never share your password or one-time login code with anyone.':'Gib niemals dein Passwort oder deinen einmaligen Anmeldecode weiter.',
+'Findings':'Ergebnisse','Next step':'Nächster Schritt','Warning signs detected':'Warnzeichen erkannt','Please be careful':'Bitte sei vorsichtig','No obvious signs detected':'Keine offensichtlichen Anzeichen erkannt',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Diese einfache Prüfung fand Hinweise, die beachtet werden sollten. Sie garantiert keine Sicherheit.',
+'The basic check did not find common warning signs. This does not prove safety.':'Die einfache Prüfung fand keine üblichen Warnzeichen. Das beweist nicht, dass es sicher ist.',
+'Do not share passwords or codes. Verify independently through an official source.':'Gib keine Passwörter oder Codes weiter. Prüfe dies über eine offizielle Quelle.',
+'Quiz score':'Quiz-Ergebnis','Review the lessons and try again.':'Wiederhole die Lektionen und versuche es erneut.','Please enter information to check.':'Gib die zu prüfenden Informationen ein.'
+},
+sw:{
+'Choose language':'Chagua lugha','Read this page':'Soma ukurasa huu','Stop':'Simamisha','Bigger text':'Maandishi makubwa',
+'🏠 Home':'🏠 Mwanzo','🛡️ Guardian':'🛡️ Mlinzi','🔗 Links':'🔗 Viungo','🚨 Scams':'🚨 Ulaghai','🔐 Password':'🔐 Nenosiri','🦠 App Safety':'🦠 Usalama wa programu','🤖 Assistant':'🤖 Msaidizi','🎓 Academy':'🎓 Masomo','🔔 Alerts':'🔔 Tahadhari','🌍 Languages':'🌍 Lugha',
+'Choose your language':'Chagua lugha yako','Security dashboard':'Muhtasari wa usalama','Checks this session':'Ukaguzi katika kipindi hiki','Warnings this session':'Tahadhari katika kipindi hiki','Operating mode':'Hali ya kufanya kazi','Offline ready':'Hufanya kazi bila intaneti',
+'What Cyber Mama can do':'Kazi za Cyber Mama','Competition demonstration':'Onyesho la mashindano','Guardian Mode':'Hali ya ulinzi','Scam Link Checker':'Kikagua viungo','Scam Message Detector':'Kigunduzi cha ujumbe wa ulaghai','Password Strength Checker':'Kikagua nguvu ya nenosiri','App & Malware Safety':'Usalama wa programu na programu hasidi','Cyber Assistant':'Msaidizi wa usalama wa mtandao','Cybersecurity Academy':'Masomo ya usalama wa mtandao',
+'Analyse Link':'Kagua kiungo','Analyse Message':'Kagua ujumbe','Analyse with Guardian':'Kagua kwa ulinzi','Try suspicious example':'Jaribu mfano wa kutia shaka','Try scam example':'Jaribu mfano wa ulaghai','Check Strength':'Kagua nguvu','Review Warning Signs':'Kagua ishara za hatari','Ask Cyber Mama':'Uliza Cyber Mama',
+'Website address':'Anwani ya tovuti','Paste a message':'Bandika ujumbe','Sample password':'Mfano wa nenosiri','Show sample':'Onyesha mfano','Never share your password or one-time login code with anyone.':'Usimpe mtu yeyote nenosiri lako au msimbo wa kuingia.',
+'Findings':'Matokeo','Next step':'Hatua inayofuata','Warning signs detected':'Ishara za hatari zimepatikana','Please be careful':'Tafadhali kuwa mwangalifu','No obvious signs detected':'Hakuna ishara dhahiri zilizopatikana',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Ukaguzi huu wa msingi umepata ishara zinazohitaji kuangaliwa. Hauwezi kuhakikisha usalama.',
+'The basic check did not find common warning signs. This does not prove safety.':'Ukaguzi wa msingi haukupata ishara za kawaida za hatari. Hii haithibitishi usalama.',
+'Do not share passwords or codes. Verify independently through an official source.':'Usishiriki nywila au misimbo. Hakikisha kupitia chanzo rasmi.',
+'Quiz score':'Matokeo ya jaribio','Review the lessons and try again.':'Pitia masomo kisha ujaribu tena.','Please enter information to check.':'Weka taarifa unazotaka kukagua.'
+},
+id:{
+'Choose language':'Pilih bahasa','Read this page':'Bacakan halaman ini','Stop':'Berhenti','Bigger text':'Perbesar teks',
+'🏠 Home':'🏠 Beranda','🛡️ Guardian':'🛡️ Perlindungan','🔗 Links':'🔗 Tautan','🚨 Scams':'🚨 Penipuan','🔐 Password':'🔐 Kata sandi','🦠 App Safety':'🦠 Keamanan aplikasi','🤖 Assistant':'🤖 Asisten','🎓 Academy':'🎓 Belajar','🔔 Alerts':'🔔 Peringatan','🌍 Languages':'🌍 Bahasa',
+'Choose your language':'Pilih bahasa Anda','Security dashboard':'Dasbor keamanan','Checks this session':'Pemeriksaan sesi ini','Warnings this session':'Peringatan sesi ini','Operating mode':'Mode operasi','Offline ready':'Dapat digunakan offline',
+'What Cyber Mama can do':'Yang dapat dilakukan Cyber Mama','Competition demonstration':'Demonstrasi kompetisi','Guardian Mode':'Mode perlindungan','Scam Link Checker':'Pemeriksa tautan','Scam Message Detector':'Pendeteksi pesan penipuan','Password Strength Checker':'Pemeriksa kekuatan kata sandi','App & Malware Safety':'Keamanan aplikasi dan malware','Cyber Assistant':'Asisten siber','Cybersecurity Academy':'Akademi keamanan siber',
+'Analyse Link':'Periksa tautan','Analyse Message':'Periksa pesan','Analyse with Guardian':'Periksa dengan perlindungan','Try suspicious example':'Coba contoh mencurigakan','Try scam example':'Coba contoh penipuan','Check Strength':'Periksa kekuatan','Review Warning Signs':'Tinjau tanda bahaya','Ask Cyber Mama':'Tanya Cyber Mama',
+'Website address':'Alamat situs web','Paste a message':'Tempel pesan','Sample password':'Contoh kata sandi','Show sample':'Tampilkan contoh','Never share your password or one-time login code with anyone.':'Jangan pernah membagikan kata sandi atau kode masuk Anda.',
+'Findings':'Temuan','Next step':'Langkah berikutnya','Warning signs detected':'Tanda bahaya ditemukan','Please be careful':'Harap berhati-hati','No obvious signs detected':'Tidak ada tanda jelas yang ditemukan',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Pemeriksaan dasar ini menemukan tanda yang perlu diperhatikan. Ini tidak menjamin keamanan.',
+'The basic check did not find common warning signs. This does not prove safety.':'Pemeriksaan dasar tidak menemukan tanda bahaya umum. Ini bukan bukti bahwa aman.',
+'Do not share passwords or codes. Verify independently through an official source.':'Jangan bagikan kata sandi atau kode. Verifikasi melalui sumber resmi.',
+'Quiz score':'Nilai kuis','Review the lessons and try again.':'Pelajari kembali materi lalu coba lagi.','Please enter information to check.':'Masukkan informasi yang ingin diperiksa.'
+},
+tr:{
+'Choose language':'Dil seçin','Read this page':'Bu sayfayı oku','Stop':'Durdur','Bigger text':'Daha büyük yazı',
+'🏠 Home':'🏠 Ana sayfa','🛡️ Guardian':'🛡️ Koruma','🔗 Links':'🔗 Bağlantılar','🚨 Scams':'🚨 Dolandırıcılık','🔐 Password':'🔐 Parola','🦠 App Safety':'🦠 Uygulama güvenliği','🤖 Assistant':'🤖 Asistan','🎓 Academy':'🎓 Eğitim','🔔 Alerts':'🔔 Uyarılar','🌍 Languages':'🌍 Diller',
+'Choose your language':'Dilinizi seçin','Security dashboard':'Güvenlik paneli','Checks this session':'Bu oturumdaki kontroller','Warnings this session':'Bu oturumdaki uyarılar','Operating mode':'Çalışma modu','Offline ready':'Çevrimdışı kullanılabilir',
+'What Cyber Mama can do':'Cyber Mama neler yapabilir','Competition demonstration':'Yarışma demosu','Guardian Mode':'Koruma modu','Scam Link Checker':'Bağlantı denetleyici','Scam Message Detector':'Dolandırıcılık mesajı algılama','Password Strength Checker':'Parola gücü denetleyici','App & Malware Safety':'Uygulama ve kötü amaçlı yazılım güvenliği','Cyber Assistant':'Siber asistan','Cybersecurity Academy':'Siber güvenlik akademisi',
+'Analyse Link':'Bağlantıyı incele','Analyse Message':'Mesajı incele','Analyse with Guardian':'Koruma ile incele','Try suspicious example':'Şüpheli örneği dene','Try scam example':'Dolandırıcılık örneğini dene','Check Strength':'Gücü kontrol et','Review Warning Signs':'Uyarı işaretlerini incele','Ask Cyber Mama':'Cyber Mama’ya sor',
+'Website address':'Web sitesi adresi','Paste a message':'Mesajı yapıştır','Sample password':'Örnek parola','Show sample':'Örneği göster','Never share your password or one-time login code with anyone.':'Parolanızı veya tek kullanımlık giriş kodunuzu kimseyle paylaşmayın.',
+'Findings':'Bulgular','Next step':'Sonraki adım','Warning signs detected':'Uyarı işaretleri bulundu','Please be careful':'Lütfen dikkatli olun','No obvious signs detected':'Belirgin işaret bulunmadı',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Bu temel kontrol dikkat edilmesi gereken işaretler buldu. Güvenliği garanti etmez.',
+'The basic check did not find common warning signs. This does not prove safety.':'Temel kontrol yaygın uyarı işaretleri bulmadı. Bu güvenli olduğunu kanıtlamaz.',
+'Do not share passwords or codes. Verify independently through an official source.':'Parolaları veya kodları paylaşmayın. Resmî bir kaynaktan doğrulayın.',
+'Quiz score':'Sınav sonucu','Review the lessons and try again.':'Dersleri gözden geçirip tekrar deneyin.','Please enter information to check.':'Kontrol edilecek bilgileri girin.'
+},
+ru:{
+'Choose language':'Выберите язык','Read this page':'Прочитать страницу','Stop':'Стоп','Bigger text':'Увеличить текст',
+'🏠 Home':'🏠 Главная','🛡️ Guardian':'🛡️ Защита','🔗 Links':'🔗 Ссылки','🚨 Scams':'🚨 Мошенничество','🔐 Password':'🔐 Пароль','🦠 App Safety':'🦠 Безопасность приложений','🤖 Assistant':'🤖 Помощник','🎓 Academy':'🎓 Обучение','🔔 Alerts':'🔔 Оповещения','🌍 Languages':'🌍 Языки',
+'Choose your language':'Выберите язык','Security dashboard':'Панель безопасности','Checks this session':'Проверки за сеанс','Warnings this session':'Предупреждения за сеанс','Operating mode':'Режим работы','Offline ready':'Работает офлайн',
+'What Cyber Mama can do':'Что умеет Cyber Mama','Competition demonstration':'Демонстрация для конкурса','Guardian Mode':'Режим защиты','Scam Link Checker':'Проверка ссылок','Scam Message Detector':'Поиск мошеннических сообщений','Password Strength Checker':'Проверка надёжности пароля','App & Malware Safety':'Безопасность приложений и вредоносных программ','Cyber Assistant':'Киберпомощник','Cybersecurity Academy':'Академия кибербезопасности',
+'Analyse Link':'Проверить ссылку','Analyse Message':'Проверить сообщение','Analyse with Guardian':'Проверить с защитой','Try suspicious example':'Проверить подозрительный пример','Try scam example':'Проверить пример мошенничества','Check Strength':'Проверить надёжность','Review Warning Signs':'Проверить признаки опасности','Ask Cyber Mama':'Спросить Cyber Mama',
+'Website address':'Адрес сайта','Paste a message':'Вставьте сообщение','Sample password':'Пример пароля','Show sample':'Показать пример','Never share your password or one-time login code with anyone.':'Никому не сообщайте пароль или одноразовый код входа.',
+'Findings':'Результаты','Next step':'Следующий шаг','Warning signs detected':'Обнаружены признаки опасности','Please be careful':'Будьте осторожны','No obvious signs detected':'Явных признаков не обнаружено',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'Базовая проверка обнаружила признаки, требующие внимания. Она не гарантирует безопасность.',
+'The basic check did not find common warning signs. This does not prove safety.':'Базовая проверка не обнаружила распространённых признаков опасности. Это не доказывает безопасность.',
+'Do not share passwords or codes. Verify independently through an official source.':'Не сообщайте пароли и коды. Проверьте информацию через официальный источник.',
+'Quiz score':'Результат викторины','Review the lessons and try again.':'Повторите уроки и попробуйте снова.','Please enter information to check.':'Введите данные для проверки.'
+},
+hi:{
+'Choose language':'भाषा चुनें','Read this page':'यह पृष्ठ पढ़ें','Stop':'रोकें','Bigger text':'बड़ा पाठ',
+'🏠 Home':'🏠 होम','🛡️ Guardian':'🛡️ सुरक्षा','🔗 Links':'🔗 लिंक','🚨 Scams':'🚨 धोखाधड़ी','🔐 Password':'🔐 पासवर्ड','🦠 App Safety':'🦠 ऐप सुरक्षा','🤖 Assistant':'🤖 सहायक','🎓 Academy':'🎓 सीखें','🔔 Alerts':'🔔 चेतावनियाँ','🌍 Languages':'🌍 भाषाएँ',
+'Choose your language':'अपनी भाषा चुनें','Security dashboard':'सुरक्षा डैशबोर्ड','Checks this session':'इस सत्र की जाँच','Warnings this session':'इस सत्र की चेतावनियाँ','Operating mode':'कार्य मोड','Offline ready':'ऑफ़लाइन उपलब्ध',
+'What Cyber Mama can do':'Cyber Mama क्या कर सकता है','Competition demonstration':'प्रतियोगिता प्रदर्शन','Guardian Mode':'सुरक्षा मोड','Scam Link Checker':'लिंक जाँचकर्ता','Scam Message Detector':'धोखाधड़ी संदेश पहचानकर्ता','Password Strength Checker':'पासवर्ड मज़बूती जाँच','App & Malware Safety':'ऐप और मैलवेयर सुरक्षा','Cyber Assistant':'साइबर सहायक','Cybersecurity Academy':'साइबर सुरक्षा अकादमी',
+'Analyse Link':'लिंक जाँचें','Analyse Message':'संदेश जाँचें','Analyse with Guardian':'सुरक्षा के साथ जाँचें','Try suspicious example':'संदिग्ध उदाहरण आज़माएँ','Try scam example':'धोखाधड़ी उदाहरण आज़माएँ','Check Strength':'मज़बूती जाँचें','Review Warning Signs':'चेतावनी संकेत देखें','Ask Cyber Mama':'Cyber Mama से पूछें',
+'Website address':'वेबसाइट पता','Paste a message':'संदेश चिपकाएँ','Sample password':'उदाहरण पासवर्ड','Show sample':'उदाहरण दिखाएँ','Never share your password or one-time login code with anyone.':'अपना पासवर्ड या एक बार इस्तेमाल होने वाला लॉगिन कोड किसी से साझा न करें।',
+'Findings':'नतीजे','Next step':'अगला कदम','Warning signs detected':'चेतावनी संकेत मिले','Please be careful':'सावधान रहें','No obvious signs detected':'कोई स्पष्ट संकेत नहीं मिला',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'इस बुनियादी जाँच में ध्यान देने योग्य संकेत मिले। यह सुरक्षा की गारंटी नहीं है।',
+'The basic check did not find common warning signs. This does not prove safety.':'बुनियादी जाँच में आम चेतावनी संकेत नहीं मिले। इसका अर्थ यह नहीं कि यह सुरक्षित है।',
+'Do not share passwords or codes. Verify independently through an official source.':'पासवर्ड या कोड साझा न करें। आधिकारिक स्रोत से पुष्टि करें।',
+'Quiz score':'क्विज़ परिणाम','Review the lessons and try again.':'पाठ दोहराएँ और फिर कोशिश करें।','Please enter information to check.':'जाँच के लिए जानकारी दर्ज करें।'
+},
+zh:{
+'Choose language':'选择语言','Read this page':'朗读此页面','Stop':'停止','Bigger text':'放大文字',
+'🏠 Home':'🏠 首页','🛡️ Guardian':'🛡️ 防护','🔗 Links':'🔗 链接','🚨 Scams':'🚨 诈骗','🔐 Password':'🔐 密码','🦠 App Safety':'🦠 应用安全','🤖 Assistant':'🤖 助手','🎓 Academy':'🎓 学习','🔔 Alerts':'🔔 警报','🌍 Languages':'🌍 语言',
+'Choose your language':'选择你的语言','Security dashboard':'安全仪表板','Checks this session':'本次检查次数','Warnings this session':'本次警告次数','Operating mode':'运行模式','Offline ready':'可离线使用',
+'What Cyber Mama can do':'Cyber Mama 可以做什么','Competition demonstration':'比赛演示','Guardian Mode':'防护模式','Scam Link Checker':'链接检查器','Scam Message Detector':'诈骗信息检测器','Password Strength Checker':'密码强度检查器','App & Malware Safety':'应用与恶意软件安全','Cyber Assistant':'网络安全助手','Cybersecurity Academy':'网络安全课堂',
+'Analyse Link':'检查链接','Analyse Message':'检查信息','Analyse with Guardian':'使用防护模式检查','Try suspicious example':'试用可疑示例','Try scam example':'试用诈骗示例','Check Strength':'检查强度','Review Warning Signs':'查看警告信号','Ask Cyber Mama':'询问 Cyber Mama',
+'Website address':'网站地址','Paste a message':'粘贴信息','Sample password':'示例密码','Show sample':'显示示例','Never share your password or one-time login code with anyone.':'不要向任何人透露密码或一次性登录验证码。',
+'Findings':'检查结果','Next step':'下一步','Warning signs detected':'发现警告信号','Please be careful':'请保持谨慎','No obvious signs detected':'未发现明显信号',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'基础检查发现了需要注意的迹象，但不能保证安全。',
+'The basic check did not find common warning signs. This does not prove safety.':'基础检查未发现常见警告信号，但这不代表一定安全。',
+'Do not share passwords or codes. Verify independently through an official source.':'不要分享密码或验证码。请通过官方渠道独立核实。',
+'Quiz score':'测验结果','Review the lessons and try again.':'复习课程后再试一次。','Please enter information to check.':'请输入要检查的信息。'
+},
+ja:{
+'Choose language':'言語を選択','Read this page':'このページを読み上げる','Stop':'停止','Bigger text':'文字を大きくする',
+'🏠 Home':'🏠 ホーム','🛡️ Guardian':'🛡️ 保護','🔗 Links':'🔗 リンク','🚨 Scams':'🚨 詐欺','🔐 Password':'🔐 パスワード','🦠 App Safety':'🦠 アプリの安全','🤖 Assistant':'🤖 アシスタント','🎓 Academy':'🎓 学習','🔔 Alerts':'🔔 警告','🌍 Languages':'🌍 言語',
+'Choose your language':'言語を選択してください','Security dashboard':'セキュリティ概要','Checks this session':'このセッションの検査','Warnings this session':'このセッションの警告','Operating mode':'動作モード','Offline ready':'オフラインで利用可能',
+'What Cyber Mama can do':'Cyber Mama ができること','Competition demonstration':'コンテスト用デモ','Guardian Mode':'保護モード','Scam Link Checker':'リンクチェッカー','Scam Message Detector':'詐欺メッセージ検出','Password Strength Checker':'パスワード強度チェック','App & Malware Safety':'アプリとマルウェアの安全性','Cyber Assistant':'サイバーアシスタント','Cybersecurity Academy':'サイバーセキュリティ学習',
+'Analyse Link':'リンクを確認','Analyse Message':'メッセージを確認','Analyse with Guardian':'保護モードで確認','Try suspicious example':'不審な例を試す','Try scam example':'詐欺の例を試す','Check Strength':'強度を確認','Review Warning Signs':'警告サインを確認','Ask Cyber Mama':'Cyber Mama に質問',
+'Website address':'ウェブサイトのアドレス','Paste a message':'メッセージを貼り付け','Sample password':'サンプルパスワード','Show sample':'例を表示','Never share your password or one-time login code with anyone.':'パスワードやワンタイムログインコードを他人に教えないでください。',
+'Findings':'結果','Next step':'次のステップ','Warning signs detected':'警告サインが見つかりました','Please be careful':'注意してください','No obvious signs detected':'明確な兆候は見つかりませんでした',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'基本チェックで注意が必要な兆候が見つかりました。安全を保証するものではありません。',
+'The basic check did not find common warning signs. This does not prove safety.':'一般的な警告サインは見つかりませんでしたが、安全の証明ではありません。',
+'Do not share passwords or codes. Verify independently through an official source.':'パスワードやコードを共有せず、公式情報で確認してください。',
+'Quiz score':'クイズ結果','Review the lessons and try again.':'レッスンを復習して再度試してください。','Please enter information to check.':'確認する情報を入力してください。'
+},
+ko:{
+'Choose language':'언어 선택','Read this page':'이 페이지 읽기','Stop':'중지','Bigger text':'글자 크게',
+'🏠 Home':'🏠 홈','🛡️ Guardian':'🛡️ 보호','🔗 Links':'🔗 링크','🚨 Scams':'🚨 사기','🔐 Password':'🔐 비밀번호','🦠 App Safety':'🦠 앱 보안','🤖 Assistant':'🤖 도우미','🎓 Academy':'🎓 학습','🔔 Alerts':'🔔 알림','🌍 Languages':'🌍 언어',
+'Choose your language':'언어를 선택하세요','Security dashboard':'보안 대시보드','Checks this session':'이번 세션의 검사','Warnings this session':'이번 세션의 경고','Operating mode':'작동 모드','Offline ready':'오프라인 사용 가능',
+'What Cyber Mama can do':'Cyber Mama의 기능','Competition demonstration':'대회 시연','Guardian Mode':'보호 모드','Scam Link Checker':'링크 검사기','Scam Message Detector':'사기 메시지 탐지기','Password Strength Checker':'비밀번호 강도 검사','App & Malware Safety':'앱 및 악성코드 보안','Cyber Assistant':'사이버 도우미','Cybersecurity Academy':'사이버 보안 학습',
+'Analyse Link':'링크 분석','Analyse Message':'메시지 분석','Analyse with Guardian':'보호 모드로 분석','Try suspicious example':'의심스러운 예시 사용','Try scam example':'사기 예시 사용','Check Strength':'강도 확인','Review Warning Signs':'경고 신호 확인','Ask Cyber Mama':'Cyber Mama에게 질문',
+'Website address':'웹사이트 주소','Paste a message':'메시지 붙여넣기','Sample password':'예시 비밀번호','Show sample':'예시 보기','Never share your password or one-time login code with anyone.':'비밀번호나 일회용 로그인 코드를 누구에게도 공유하지 마세요.',
+'Findings':'결과','Next step':'다음 단계','Warning signs detected':'경고 신호가 감지됨','Please be careful':'주의하세요','No obvious signs detected':'뚜렷한 신호가 감지되지 않음',
+'This basic check found indicators that need attention. It cannot guarantee safety.':'기본 검사에서 주의가 필요한 신호가 발견되었습니다. 안전을 보장하지 않습니다.',
+'The basic check did not find common warning signs. This does not prove safety.':'일반적인 경고 신호가 발견되지 않았지만 안전하다는 증거는 아닙니다.',
+'Do not share passwords or codes. Verify independently through an official source.':'비밀번호나 코드를 공유하지 말고 공식 출처를 통해 확인하세요.',
+'Quiz score':'퀴즈 점수','Review the lessons and try again.':'학습 내용을 복습한 뒤 다시 시도하세요.','Please enter information to check.':'확인할 정보를 입력하세요.'
+}
+};
+const extraTips={
+fr:'Ne partagez jamais votre mot de passe ni votre code de connexion.',
+es:'Nunca compartas tu contraseña ni tu código de acceso.',
+pt:'Nunca compartilhe sua senha nem seu código de acesso.',
+de:'Teile niemals dein Passwort oder deinen einmaligen Anmeldecode.',
+sw:'Usishiriki kamwe nenosiri lako au msimbo wa kuingia.',
+id:'Jangan pernah membagikan kata sandi atau kode masuk Anda.',
+tr:'Parolanızı veya tek kullanımlık giriş kodunuzu asla paylaşmayın.',
+ru:'Никогда не сообщайте пароль или одноразовый код входа.',
+hi:'अपना पासवर्ड या एक बार इस्तेमाल होने वाला लॉगिन कोड कभी साझा न करें।',
+zh:'不要向任何人透露密码或一次性登录验证码。',
+ja:'パスワードやワンタイムログインコードを他人に教えないでください。',
+ko:'비밀번호나 일회용 로그인 코드를 누구에게도 공유하지 마세요。'
+};
+const allCodes=Object.keys(D);
+const bodyNodes=[];
+const walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+while(walk.nextNode()){
+ const n=walk.currentNode;
+ if(n.textContent.trim() && !/^(SCRIPT|STYLE|OPTION|TEXTAREA)$/i.test(n.parentElement?.tagName||'')) bodyNodes.push({n,base:n.textContent});
+}
+const optionNodes=[];
+document.querySelectorAll('option').forEach(n=>optionNodes.push({n,base:n.textContent}));
+const placeholderNodes=[];
+document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(n=>placeholderNodes.push({n,base:n.getAttribute('placeholder')}));
+function apply(){
+ const lang=document.getElementById('globalLang')?.value||'en';
+ const d=D[lang];
+ if(!d)return;
+ for(const {n,base} of bodyNodes){
+   const key=base.trim();
+   if(d[key]) n.textContent=base.replace(key,d[key]);
+   else {
+     const icon=key.match(/^([\p{Extended_Pictographic}\uFE0F\u200D]+)\s+(.+)$/u);
+     if(icon&&d[icon[2]])n.textContent=base.replace(key,icon[1]+' '+d[icon[2]]);
+   }
+ }
+ for(const {n,base} of optionNodes){
+   const key=base.trim();
+   if(d[key])n.textContent=d[key];
+ }
+ for(const {n,base} of placeholderNodes)if(d[base])n.setAttribute('placeholder',d[base]);
+ const tip=extraTips[lang];
+ if(tip){if(document.getElementById('homeTip'))document.getElementById('homeTip').textContent=tip;if(document.getElementById('tip'))document.getElementById('tip').textContent=tip}
+ document.documentElement.lang=lang;
+ document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+ const status=document.getElementById('translationStatus');
+ if(status)status.textContent='🌍 '+(document.getElementById('globalLang').selectedOptions[0]?.textContent||lang)+': Core navigation and common guidance are translated in this preview. Some detailed lesson text, quiz content, and lesser-used local-language translations still need fluent-speaker review.';
+}
+document.getElementById('globalLang')?.addEventListener('change',()=>setTimeout(apply,0));
+document.getElementById('homeLanguage')?.addEventListener('change',()=>setTimeout(apply,0));
+document.getElementById('language')?.addEventListener('change',()=>setTimeout(apply,0));
+const oldResult=window.result;
+window.result=function(id,title,points,advice,level,log=true){
+ const lang=document.getElementById('globalLang')?.value||'en';
+ if(!D[lang])return oldResult(id,title,points,advice,level,log);
+ const d=D[lang];
+ const translatedTitle=d[title]||title;
+ const r=oldResult(id,translatedTitle,points,advice,level,log);
+ const node=document.getElementById(id);
+ const high=d['Warning signs detected']||'Warning signs detected';
+ const caution=d['Please be careful']||'Please be careful';
+ const low=d['No obvious signs detected']||'No obvious signs detected';
+ const finding=d['Findings']||'Findings';
+ const next=d['Next step']||'Next step';
+ const generic=d['This basic check found indicators that need attention. It cannot guarantee safety.']||'This basic check found indicators that need attention. It cannot guarantee safety.';
+ const clear=d['The basic check did not find common warning signs. This does not prove safety.']||'The basic check did not find common warning signs. This does not prove safety.';
+ const adviceText=d['Do not share passwords or codes. Verify independently through an official source.']||'Do not share passwords or codes. Verify independently through an official source.';
+ node.textContent=(level==='high'?high:level==='caution'?caution:low)+'\n\n'+finding+': '+(level==='low'?clear:generic)+'\n\n'+next+': '+adviceText;
+ return r;
+};
+apply();
+})();
+</script>
+
+
+<script>
+/* Translation improvement patch:
+   Expands the core interface and malware checker wording for the languages with
+   starter translations. Other listed languages remain clearly marked as in development. */
+(function(){
+ const D = {
+  pcm: {
+   "Your smart digital safety companion • Built for everyday internet users":"Your smart digital safety mate • Made for everyday internet users",
+   "Understand risks. Protect your digital life.":"Know wetin fit risky. Protect your online life.",
+   "Check suspicious links and messages for warning signs such as HTTP, misleading hostnames, shortened links, and risky downloads. Built-in checks work offline.":"Check links and messages wey look somehow, learn safer habits, and see why something fit risky. The built-in checks fit work offline.",
+   "Educational risk screening, not antivirus software or a guarantee of safety.":"Na learning tool to check warning signs; e no be full antivirus and e no fit promise say something safe.",
+   "Choose your language":"Choose the language wey you prefer",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Choose your language here to read Cyber Mama safety advice.",
+   "Malware & App Safety":"Malware and App Safety",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Check warning signs for a file, review app risks, and learn how to protect your Android phone.",
+   "Open Malware Protection":"Open Malware Protection",
+   "Anti-Malware & App Safety":"Malware and App Safety",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"This demo checks file name, extension, some file signatures, and a SHA-256 fingerprint. E no be full antivirus and e no scan apps wey don dey your phone.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Use these checks to look for warning signs before you open file or install app.",
+   "Enhanced Local File Risk Check":"Better File Warning Check",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"E check strange file names, risky file types, size, some file signatures, and SHA-256 fingerprint inside your browser. E no upload the file. E fit flag warning signs, but e no fit prove say file get malware or say e safe.",
+   "Choose a downloaded file":"Choose the file wey you download",
+   "Run enhanced file checks":"Check file warning signs",
+   "App safety checklist":"App safety checklist",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Check app before you install am, or use this list if one app for your phone dey worry you.",
+   "App came from an unknown download link or unofficial store":"I download the app from link or store wey I no trust",
+   "App asks for permissions unrelated to its purpose":"The app dey ask for permissions wey no match wetin e dey do",
+   "Someone is pressuring me to install it urgently":"Person dey rush me to install am quick-quick",
+   "App has unclear developer details or suspicious reviews":"The app maker no clear, or the reviews look somehow",
+   "Phone shows unexpected pop-ups, overheating, unusual data use, or apps I did not install":"My phone dey show strange pop-ups, overheat, use plenty data, or show apps wey I no install",
+   "Review app warning signs":"Check app warning signs",
+   "Android protection steps":"Steps to protect Android",
+   "Open Google Play Store and tap your profile picture.":"Open Google Play Store and tap your profile picture.",
+   "Choose Play Protect, then run a scan if available.":"Choose Play Protect, then run scan if e dey available.",
+   "Install Android and app updates from official settings or stores.":"Update Android and apps through official settings or stores.",
+   "Uninstall apps you do not recognise, if safe to do so.":"Remove apps wey you no recognise, if you fit do am safely.",
+   "Do not disable security protections to install an unknown app.":"No turn off security protection just to install app wey you no know.",
+   "If you believe a device is infected, avoid entering banking passwords on it and ask a trusted adult or reputable device-support professional for help.":"If you think say your phone get infection, no enter bank password there. Ask trusted adult or reliable phone-support person for help.",
+   "Security dashboard":"Security dashboard",
+   "Checks this session":"Checks for this session",
+   "Warnings this session":"Warnings for this session",
+   "Operating mode":"How it works",
+   "Offline ready":"Ready to work offline",
+   "More language information →":"More language information →",
+   "Open Guardian Mode →":"Open Guardian Mode →",
+   "Competition demonstration":"Competition demo",
+   "Try the sample buttons in Guardian, Scam Link Checker and Scam Detector. They use fictional examples and show explanations, not just a red or green label.":"Try the sample buttons in Guardian, Scam Link Checker, and Scam Detector. The examples are made up and explain the warning signs.",
+   "No checks yet. Try Guardian Mode.":"You never run a check yet. Try Guardian Mode.",
+   "Clear history":"Clear history",
+   "Security Alerts":"Security Alerts",
+   "Scam Link Checker":"Scam Link Checker",
+   "Scam Message Detector":"Scam Message Detector",
+   "Password Strength Checker":"Password Strength Checker",
+   "Malware Scanner":"Malware Checker",
+   "Cyber Assistant":"Cyber Assistant",
+   "Cybersecurity Academy":"Cybersecurity Academy",
+   "Languages":"Languages"
+  },
+  yo: {
+   "Your smart digital safety companion • Built for everyday internet users":"Olùrànlọ́wọ́ ààbò orí ayélujára rẹ • Fún gbogbo àwọn olùlò ayélujára",
+   "Understand risks. Protect your digital life.":"Lóye ewu. Dáàbò bo ìgbésí ayé rẹ lórí ayélujára.",
+   "Choose your language":"Yan èdè rẹ",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Yan èdè níbí láti ka ìmọ̀ràn ààbò Cyber Mama.",
+   "Malware & App Safety":"Ààbò Malware àti Àwọn App",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Ṣàyẹ̀wò àwọn àmì ìkìlọ̀ fáìlì, ewu app, àti bí o ṣe lè dáàbò bo fóònù Android rẹ.",
+   "Open Malware Protection":"Ṣí Ààbò Malware",
+   "Anti-Malware & App Safety":"Ààbò Malware àti App",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"Àyẹ̀wò yìí wo orúkọ fáìlì, irú fáìlì, àwọn àmì díẹ̀ nínú fáìlì àti ìdánimọ̀ SHA-256. Kì í ṣe antivirus pípé, kò sì ṣàyẹ̀wò àwọn app tó ti wà lórí fóònù.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Lo àwọn àyẹ̀wò wọ̀nyí láti rí àmì ìkìlọ̀ kí o tó ṣí fáìlì tàbí fi app sí fóònù.",
+   "Enhanced Local File Risk Check":"Àyẹ̀wò Ewu Fáìlì",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"Ó ṣàyẹ̀wò orúkọ fáìlì, irú fáìlì tó lè léwu, ìwọ̀n fáìlì àti àwọn àmì fáìlì díẹ̀ nínú ẹ̀rọ aṣàwárí rẹ. A kò gbé fáìlì náà sí olupin. Èyí lè fi àmì ìkìlọ̀ hàn, ṣùgbọ́n kò lè jẹ́rìí pé fáìlì kò ní malware.",
+   "Choose a downloaded file":"Yan fáìlì tí o ṣe igbasilẹ",
+   "Run enhanced file checks":"Ṣàyẹ̀wò fáìlì",
+   "App safety checklist":"Àtòjọ àyẹ̀wò ààbò app",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Ṣàyẹ̀wò app kí o tó fi sí fóònù, tàbí lo àtòjọ yìí bí app kan bá ń yọ ọ lẹ́nu.",
+   "App came from an unknown download link or unofficial store":"Mo gba app náà láti ọ̀nà tí n kò mọ̀ tàbí ilé ìtajà tí kò jẹ́ òfin",
+   "App asks for permissions unrelated to its purpose":"App náà ń béèrè àṣẹ tí kò bá iṣẹ́ rẹ mu",
+   "Someone is pressuring me to install it urgently":"Ẹnì kan ń fi ìkánjú mú mi fi app náà sí fóònù",
+   "App has unclear developer details or suspicious reviews":"Alaye olùdásílẹ̀ app náà kò ṣe kedere tàbí àwọn àyẹ̀wò rẹ̀ dà bí ohun ìfura",
+   "Phone shows unexpected pop-ups, overheating, unusual data use, or apps I did not install":"Fóònù ń fi ìpolówó àìròtẹ́lẹ̀ hàn, ń gbóná, ń lo data púpọ̀, tàbí ó ní app tí n kò fi sí i",
+   "Review app warning signs":"Ṣàyẹ̀wò àmì ìkìlọ̀ app",
+   "Android protection steps":"Àwọn ìgbésẹ̀ ààbò Android",
+   "Clear history":"Pa ìtàn àyẹ̀wò rẹ́",
+   "Security Alerts":"Ìkìlọ̀ Ààbò",
+   "Security dashboard":"Pánẹ́lì ààbò",
+   "Checks this session":"Àyẹ̀wò nínú ìgbà yìí",
+   "Warnings this session":"Ìkìlọ̀ nínú ìgbà yìí",
+   "Operating mode":"Ọ̀nà iṣẹ́",
+   "Offline ready":"Ṣetán láìsí ayélujára",
+   "Malware Scanner":"Àyẹ̀wò Malware",
+   "Scam Link Checker":"Àyẹ̀wò Ìjápọ̀",
+   "Scam Message Detector":"Ìwádìí Ìfiránṣẹ́ Ẹ̀tàn",
+   "Password Strength Checker":"Àyẹ̀wò Agbára Ọ̀rọ̀ aṣínà",
+   "Cyber Assistant":"Olùrànlọ́wọ́ Cyber",
+   "Cybersecurity Academy":"Ilé-ẹ̀kọ́ Ààbò Ayélujára",
+   "Languages":"Àwọn Èdè"
+  },
+  ig: {
+   "Your smart digital safety companion • Built for everyday internet users":"Onye enyemaka nchekwa dijitalụ gị • Maka ndị na-eji ịntanetị kwa ụbọchị",
+   "Understand risks. Protect your digital life.":"Ghọta ihe egwu. Chebe ndụ dijitalụ gị.",
+   "Choose your language":"Họrọ asụsụ gị",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Họrọ asụsụ gị ebe a ka ị gụọ ndụmọdụ nchekwa Cyber Mama.",
+   "Malware & App Safety":"Nchekwa Malware na Ngwa",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Lelee akara ịdọ aka ná ntị faịlụ, ihe egwu ngwa, ma mụta otu esi echekwa ekwentị Android gị.",
+   "Open Malware Protection":"Mepee Nchekwa Malware",
+   "Anti-Malware & App Safety":"Nchekwa Malware na Ngwa",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"Nlele ngosi a na-enyocha aha faịlụ, ụdị faịlụ, ụfọdụ akara faịlụ na akara SHA-256. Ọ bụghị antivirus zuru oke, ọ naghị enyocha ngwa etinyere na ekwentị.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Jiri nlele ndị a chọpụta akara ịdọ aka ná ntị tupu imepe faịlụ ma ọ bụ tinye ngwa.",
+   "Enhanced Local File Risk Check":"Nlele Ihe Egwu Faịlụ",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"Ọ na-enyocha aha faịlụ, ụdị faịlụ nwere ike ịdị ize ndụ, nha faịlụ na ụfọdụ akara faịlụ n'ime ihe nchọgharị gị. A naghị ebugo faịlụ ahụ. Ọ nwere ike igosi ihe ịdọ aka ná ntị, mana ọ gaghị ekwe nkwa na faịlụ enweghị malware.",
+   "Choose a downloaded file":"Họrọ faịlụ ebudatara",
+   "Run enhanced file checks":"Lelee faịlụ",
+   "App safety checklist":"Ndepụta nlele nchekwa ngwa",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Lelee ngwa tupu itinye ya, ma ọ bụ jiri ndepụta a ma ọ bụrụ na ngwa dị na ekwentị gị na-enye gị nsogbu.",
+   "App came from an unknown download link or unofficial store":"E si na njikọ amaghi ama ma ọ bụ ụlọ ahịa na-abụghị nke iwu nweta ngwa ahụ",
+   "App asks for permissions unrelated to its purpose":"Ngwa ahụ na-arịọ ikike na-enweghị njikọ na ọrụ ya",
+   "Someone is pressuring me to install it urgently":"Onye na-amanye m ka m tinye ya ngwa ngwa",
+   "App has unclear developer details or suspicious reviews":"Ozi onye mepụtara ngwa ahụ edoghị anya ma ọ bụ nyocha ya na-enyo enyo",
+   "Phone shows unexpected pop-ups, overheating, unusual data use, or apps I did not install":"Ekwentị na-egosi mgbasa ozi na-atụghị anya ya, na-ekpo ọkụ, na-eji data nke ukwuu, ma ọ bụ nwee ngwa m na-etinyeghị",
+   "Review app warning signs":"Lelee akara ịdọ aka ná ntị ngwa",
+   "Android protection steps":"Nzọụkwụ nchekwa Android",
+   "Clear history":"Hichapụ akụkọ nlele",
+   "Security Alerts":"Ịdọ Aka Ná Ntị Nchekwa",
+   "Security dashboard":"Ogwe njikwa nchekwa",
+   "Checks this session":"Nlele n'oge a",
+   "Warnings this session":"Ịdọ aka ná ntị n'oge a",
+   "Operating mode":"Ụdị ọrụ",
+   "Offline ready":"Dị njikere na-enweghị ịntanetị",
+   "Malware Scanner":"Nlele Malware",
+   "Scam Link Checker":"Nlele Njikọ",
+   "Scam Message Detector":"Nchọpụta Ozi Aghụghọ",
+   "Password Strength Checker":"Nlele Ike Okwuntughe",
+   "Cyber Assistant":"Onye Enyemaka Cyber",
+   "Cybersecurity Academy":"Ụlọ Akwụkwọ Nchekwa Ịntanetị",
+   "Languages":"Asụsụ"
+  },
+  ha: {
+   "Your smart digital safety companion • Built for everyday internet users":"Abokin taimakon tsaron dijital naka • Ga masu amfani da intanet kullum",
+   "Understand risks. Protect your digital life.":"Fahimci haɗari. Kare rayuwarka ta intanet.",
+   "Choose your language":"Zaɓi harshenka",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Zaɓi harshenka a nan don karanta shawarwarin tsaro na Cyber Mama.",
+   "Malware & App Safety":"Tsaron Malware da Manhajoji",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Duba alamun haɗari na fayil, haɗarin manhajoji, kuma koyi yadda za ka kare wayar Android.",
+   "Open Malware Protection":"Buɗe Kariyar Malware",
+   "Anti-Malware & App Safety":"Tsaron Malware da Manhajoji",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"Wannan gwajin yana duba sunan fayil, nau'in fayil, wasu alamomin fayil da SHA-256. Ba cikakken antivirus ba ne kuma ba ya bincika manhajojin da aka riga aka girka.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Yi amfani da waɗannan gwaje-gwaje don gano alamun haɗari kafin buɗe fayil ko girka manhaja.",
+   "Enhanced Local File Risk Check":"Gwajin Haɗarin Fayil",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"Yana duba sunan fayil, nau'in fayil mai haɗari, girma da wasu alamomin fayil a cikin burauzarka. Ba a ɗora fayil ɗin zuwa intanet ba. Zai iya nuna alamun haɗari amma ba zai tabbatar da cewa fayil ɗin ba shi da malware ba.",
+   "Choose a downloaded file":"Zaɓi fayil da aka sauke",
+   "Run enhanced file checks":"Duba alamun haɗarin fayil",
+   "App safety checklist":"Jerin duba tsaron manhaja",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Duba manhaja kafin girka ta, ko yi amfani da wannan jerin idan kana zargin manhajar da ke wayarka.",
+   "App came from an unknown download link or unofficial store":"An samo manhajar daga hanyar saukewa da ba a sani ba ko shago mara izini",
+   "App asks for permissions unrelated to its purpose":"Manhajar tana neman izinin da bai dace da aikinta ba",
+   "Someone is pressuring me to install it urgently":"Wani yana matsa mini in girka ta cikin gaggawa",
+   "App has unclear developer details or suspicious reviews":"Bayanan mai ƙirƙirar manhajar ba su bayyana ba ko ra'ayoyin suna da shakku",
+   "Phone shows unexpected pop-ups, overheating, unusual data use, or apps I did not install":"Wayar tana nuna pop-up marasa tsammani, tana yin zafi, tana amfani da data sosai, ko tana da manhajojin da ban girka ba",
+   "Review app warning signs":"Duba alamun haɗarin manhaja",
+   "Android protection steps":"Matakan kare Android",
+   "Clear history":"Share tarihin dubawa",
+   "Security Alerts":"Gargadin Tsaro",
+   "Security dashboard":"Allon kula da tsaro",
+   "Checks this session":"Dubawa a wannan zaman",
+   "Warnings this session":"Gargadi a wannan zaman",
+   "Operating mode":"Yanayin aiki",
+   "Offline ready":"A shirye ba tare da intanet ba",
+   "Malware Scanner":"Mai duba Malware",
+   "Scam Link Checker":"Mai duba hanyoyin haɗi",
+   "Scam Message Detector":"Mai gano saƙonnin zamba",
+   "Password Strength Checker":"Mai duba ƙarfin kalmar sirri",
+   "Cyber Assistant":"Mataimakin Cyber",
+   "Cybersecurity Academy":"Makarantar tsaron intanet",
+   "Languages":"Harsuna"
+  },
+  fr: {
+   "Your smart digital safety companion • Built for everyday internet users":"Votre assistant intelligent de sécurité numérique • Pour tous les internautes",
+   "Understand risks. Protect your digital life.":"Comprenez les risques. Protégez votre vie numérique.",
+   "Choose your language":"Choisissez votre langue",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Choisissez une langue ici pour lire les conseils de sécurité de Cyber Mama.",
+   "Malware & App Safety":"Sécurité contre les logiciels malveillants et des applications",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Vérifiez les signes de risque d’un fichier, examinez les risques liés aux applications et apprenez à protéger votre téléphone Android.",
+   "Open Malware Protection":"Ouvrir la protection contre les logiciels malveillants",
+   "Anti-Malware & App Safety":"Protection contre les logiciels malveillants",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"Cette démonstration vérifie le nom, l’extension, quelques signatures de fichiers et une empreinte SHA-256 locale. Ce n’est pas un antivirus complet et elle n’analyse pas les applications installées.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Utilisez ces contrôles pour repérer des signes suspects avant d’ouvrir un fichier ou d’installer une application.",
+   "Enhanced Local File Risk Check":"Vérification locale des risques liés aux fichiers",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"Vérifie le nom, le type, la taille et certaines signatures du fichier dans votre navigateur. Le fichier n’est pas envoyé. Ces contrôles signalent des risques possibles sans garantir qu’un fichier est sain.",
+   "Choose a downloaded file":"Choisir un fichier téléchargé",
+   "Run enhanced file checks":"Vérifier le fichier",
+   "App safety checklist":"Liste de contrôle de sécurité des applications",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Vérifiez une application avant de l’installer ou utilisez cette liste si une application sur votre téléphone vous inquiète.",
+   "Review app warning signs":"Examiner les signes suspects",
+   "Android protection steps":"Étapes de protection Android",
+   "Clear history":"Effacer l’historique",
+   "Security Alerts":"Alertes de sécurité",
+   "Security dashboard":"Tableau de bord de sécurité",
+   "Checks this session":"Vérifications de cette session",
+   "Warnings this session":"Alertes de cette session",
+   "Operating mode":"Mode de fonctionnement",
+   "Offline ready":"Fonctionne hors ligne",
+   "Malware Scanner":"Analyseur de logiciels malveillants",
+   "Scam Link Checker":"Vérificateur de liens",
+   "Scam Message Detector":"Détecteur de messages frauduleux",
+   "Password Strength Checker":"Vérificateur de robustesse des mots de passe",
+   "Cyber Assistant":"Assistant cyber",
+   "Cybersecurity Academy":"Académie de cybersécurité",
+   "Languages":"Langues"
+  },
+  es: {
+   "Your smart digital safety companion • Built for everyday internet users":"Tu compañero inteligente de seguridad digital • Para quienes usan Internet a diario",
+   "Understand risks. Protect your digital life.":"Comprende los riesgos. Protege tu vida digital.",
+   "Choose your language":"Elige tu idioma",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Elige aquí un idioma para leer los consejos de seguridad de Cyber Mama.",
+   "Malware & App Safety":"Seguridad contra malware y aplicaciones",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Comprueba señales de riesgo en archivos, revisa riesgos de aplicaciones y aprende a proteger tu teléfono Android.",
+   "Open Malware Protection":"Abrir protección contra malware",
+   "Anti-Malware & App Safety":"Protección contra malware y aplicaciones",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"Esta demostración comprueba el nombre, la extensión, algunas firmas de archivo y una huella SHA-256 local. No es un antivirus completo y no analiza las aplicaciones instaladas.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Usa estas comprobaciones para detectar señales de alerta antes de abrir un archivo o instalar una aplicación.",
+   "Enhanced Local File Risk Check":"Comprobación local de riesgos de archivos",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"Comprueba el nombre, tipo, tamaño y algunas firmas del archivo en tu navegador. El archivo no se sube. Estas comprobaciones pueden señalar riesgos, pero no garantizan que el archivo esté libre de malware.",
+   "Choose a downloaded file":"Elegir un archivo descargado",
+   "Run enhanced file checks":"Comprobar archivo",
+   "App safety checklist":"Lista de seguridad de aplicaciones",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Revisa una aplicación antes de instalarla o usa esta lista si te preocupa una aplicación de tu teléfono.",
+   "Review app warning signs":"Revisar señales de alerta",
+   "Android protection steps":"Pasos para proteger Android",
+   "Clear history":"Borrar historial",
+   "Security Alerts":"Alertas de seguridad",
+   "Security dashboard":"Panel de seguridad",
+   "Checks this session":"Comprobaciones de esta sesión",
+   "Warnings this session":"Alertas de esta sesión",
+   "Operating mode":"Modo de funcionamiento",
+   "Offline ready":"Listo para usar sin conexión",
+   "Malware Scanner":"Detector de malware",
+   "Scam Link Checker":"Comprobador de enlaces",
+   "Scam Message Detector":"Detector de mensajes fraudulentos",
+   "Password Strength Checker":"Comprobador de contraseñas",
+   "Cyber Assistant":"Asistente cibernético",
+   "Cybersecurity Academy":"Academia de ciberseguridad",
+   "Languages":"Idiomas"
+  },
+  pt: {
+   "Your smart digital safety companion • Built for everyday internet users":"Seu assistente inteligente de segurança digital • Para quem usa a internet diariamente",
+   "Understand risks. Protect your digital life.":"Entenda os riscos. Proteja sua vida digital.",
+   "Choose your language":"Escolha seu idioma",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"Escolha um idioma aqui para ler as dicas de segurança da Cyber Mama.",
+   "Malware & App Safety":"Segurança contra malware e aplicativos",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"Verifique sinais de risco em arquivos, analise riscos de aplicativos e aprenda a proteger seu celular Android.",
+   "Open Malware Protection":"Abrir proteção contra malware",
+   "Anti-Malware & App Safety":"Proteção contra malware e aplicativos",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"Esta demonstração verifica nome, extensão, algumas assinaturas de arquivos e uma impressão digital SHA-256 local. Não é um antivírus completo e não analisa aplicativos instalados.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"Use estas verificações para identificar sinais de alerta antes de abrir um arquivo ou instalar um aplicativo.",
+   "Enhanced Local File Risk Check":"Verificação local de risco de arquivos",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"Verifica nome, tipo, tamanho e algumas assinaturas do arquivo no navegador. O arquivo não é enviado. As verificações podem apontar riscos, mas não garantem que o arquivo esteja livre de malware.",
+   "Choose a downloaded file":"Escolher um arquivo baixado",
+   "Run enhanced file checks":"Verificar arquivo",
+   "App safety checklist":"Lista de segurança de aplicativos",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"Verifique um aplicativo antes de instalá-lo ou use esta lista se estiver preocupado com um aplicativo no seu celular.",
+   "Review app warning signs":"Verificar sinais de alerta",
+   "Android protection steps":"Etapas para proteger o Android",
+   "Clear history":"Limpar histórico",
+   "Security Alerts":"Alertas de segurança",
+   "Security dashboard":"Painel de segurança",
+   "Checks this session":"Verificações desta sessão",
+   "Warnings this session":"Alertas desta sessão",
+   "Operating mode":"Modo de funcionamento",
+   "Offline ready":"Pronto para uso offline",
+   "Malware Scanner":"Verificador de malware",
+   "Scam Link Checker":"Verificador de links",
+   "Scam Message Detector":"Detector de mensagens fraudulentas",
+   "Password Strength Checker":"Verificador de senhas",
+   "Cyber Assistant":"Assistente cibernético",
+   "Cybersecurity Academy":"Academia de cibersegurança",
+   "Languages":"Idiomas"
+  },
+  ar: {
+   "Your smart digital safety companion • Built for everyday internet users":"رفيقك الذكي للسلامة الرقمية • لمستخدمي الإنترنت يوميًا",
+   "Understand risks. Protect your digital life.":"افهم المخاطر. احمِ حياتك الرقمية.",
+   "Choose your language":"اختر لغتك",
+   "Select a language right from the home screen to read Cyber Mama’s safety advice.":"اختر لغتك هنا لقراءة نصائح الأمان من Cyber Mama.",
+   "Malware & App Safety":"أمان البرامج الضارة والتطبيقات",
+   "Check a file's basic warning signs, review app-safety risks, and learn how to protect your Android phone.":"تحقق من علامات الخطر في الملفات والتطبيقات وتعلّم حماية هاتف Android.",
+   "Open Malware Protection":"افتح الحماية من البرامج الضارة",
+   "Anti-Malware & App Safety":"الحماية من البرامج الضارة وأمان التطبيقات",
+   "Enhanced demo checks: filename, extension, selected file-header signatures and a local SHA-256 fingerprint. This is not a full antivirus engine and does not scan installed apps.":"يفحص هذا النموذج اسم الملف وامتداده وبعض تواقيع الملفات وبصمة SHA-256 محليًا. ليس مضاد فيروسات كاملًا ولا يفحص التطبيقات المثبتة.",
+   "Use these checks to spot warning signs before opening a file or installing an app.":"استخدم هذه الفحوصات لاكتشاف علامات التحذير قبل فتح ملف أو تثبيت تطبيق.",
+   "Enhanced Local File Risk Check":"فحص محلي لمخاطر الملفات",
+   "Checks filename tricks, risky file types, file size, file-signature mismatches and a SHA-256 fingerprint locally in your browser. The file is not uploaded. These checks can flag warning signs but cannot confirm that a file is malware-free.":"يفحص الاسم والنوع والحجم وبعض تواقيع الملف داخل المتصفح. لا يتم رفع الملف. قد تكشف هذه الفحوصات علامات خطر لكنها لا تضمن خلو الملف من البرامج الضارة.",
+   "Choose a downloaded file":"اختر ملفًا تم تنزيله",
+   "Run enhanced file checks":"افحص الملف",
+   "App safety checklist":"قائمة فحص أمان التطبيقات",
+   "Review an app before installing it, or use this checklist if you are worried about an app already on your phone.":"افحص التطبيق قبل تثبيته أو استخدم القائمة إذا كنت قلقًا من تطبيق على هاتفك.",
+   "Review app warning signs":"راجع علامات الخطر في التطبيق",
+   "Android protection steps":"خطوات حماية Android",
+   "Clear history":"مسح السجل",
+   "Security Alerts":"تنبيهات الأمان",
+   "Security dashboard":"لوحة الأمان",
+   "Checks this session":"الفحوصات في هذه الجلسة",
+   "Warnings this session":"التنبيهات في هذه الجلسة",
+   "Operating mode":"وضع التشغيل",
+   "Offline ready":"جاهز للعمل دون اتصال",
+   "Malware Scanner":"فاحص البرامج الضارة",
+   "Scam Link Checker":"فاحص الروابط",
+   "Scam Message Detector":"كاشف رسائل الاحتيال",
+   "Password Strength Checker":"فاحص قوة كلمة المرور",
+   "Cyber Assistant":"مساعد الأمن السيبراني",
+   "Cybersecurity Academy":"أكاديمية الأمن السيبراني",
+   "Languages":"اللغات"
+  }
+ };
+ const supported = Object.keys(D);
+ const originalText = new Map();
+ const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+ while(walker.nextNode()){
+   const n=walker.currentNode;
+   if(n.parentElement && /^(SCRIPT|STYLE|OPTION|TEXTAREA)$/i.test(n.parentElement.tagName)) continue;
+   const t=n.textContent.trim();
+   if(t) originalText.set(n,n.textContent);
+ }
+ const originalPlaceholders = [];
+ document.querySelectorAll('[placeholder]').forEach(el=>originalPlaceholders.push([el,el.getAttribute('placeholder')]));
+ function apply(){
+   const lang=document.getElementById('globalLang')?.value || 'en';
+   const dict=D[lang];
+   if(!dict) return; // Other language choices stay marked as in development.
+   for(const [node,raw] of originalText){
+     const key=raw.trim();
+     let replacement=dict[key];
+     if(!replacement){
+       const m=key.match(/^([\p{Extended_Pictographic}\uFE0F\u200D🔐🔗🛡️🌍🚨🎓🔔🦠🤖🏠📱🧪✨]+)\s+(.+)$/u);
+       if(m && dict[m[2]]) replacement=m[1]+' '+dict[m[2]];
+     }
+     if(replacement) node.textContent=raw.replace(key,replacement);
+   }
+   originalPlaceholders.forEach(([el,raw])=>{if(dict[raw])el.setAttribute('placeholder',dict[raw]);});
+   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+ }
+ for(const id of ['globalLang','homeLanguage','language']) document.getElementById(id)?.addEventListener('change',()=>setTimeout(apply,0));
+ // Existing translation function runs at startup; apply the expanded dictionary after it.
+ setTimeout(apply,50);
+})();
+</script>
+
+
+<script>
+/* Small validation helpers for scam-link checker demo */
+(function(){
+ const box=document.getElementById('url');
+ if(box){
+   box.setAttribute('autocapitalize','off');
+   box.setAttribute('autocomplete','off');
+   box.setAttribute('spellcheck','false');
+   box.setAttribute('placeholder','Paste a full link, e.g. http://example.com/login');
+ }
+})();
+</script>
+</body></html>
